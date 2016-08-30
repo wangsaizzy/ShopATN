@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02E493F21D7524C8009683E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E493F11D7524C8009683E6 /* main.m */; };
+		02E493F51D7524C8009683E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E493F41D7524C8009683E6 /* AppDelegate.m */; };
+		02E493F81D7524C8009683E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E493F71D7524C8009683E6 /* ViewController.m */; };
+		02E493FB1D7524C8009683E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E493F91D7524C8009683E6 /* Main.storyboard */; };
+		02E493FD1D7524C8009683E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02E493FC1D7524C8009683E6 /* Assets.xcassets */; };
+		02E494001D7524C8009683E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */; };
+		02E4940B1D7524C8009683E6 /* ATNShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4940A1D7524C8009683E6 /* ATNShopTests.m */; };
+		02E494161D7524C8009683E6 /* ATNShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E494151D7524C8009683E6 /* ATNShopUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02E494071D7524C8009683E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E493E51D7524C8009683E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02E493EC1D7524C8009683E6;
+			remoteInfo = ATNShop;
+		};
+		02E494121D7524C8009683E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02E493E51D7524C8009683E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02E493EC1D7524C8009683E6;
+			remoteInfo = ATNShop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02E493ED1D7524C8009683E6 /* ATNShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATNShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02E493F11D7524C8009683E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		02E493F31D7524C8009683E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		02E493F41D7524C8009683E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		02E493F61D7524C8009683E6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		02E493F71D7524C8009683E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		02E493FA1D7524C8009683E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		02E493FC1D7524C8009683E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02E493FF1D7524C8009683E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		02E494011D7524C8009683E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02E494061D7524C8009683E6 /* ATNShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATNShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02E4940A1D7524C8009683E6 /* ATNShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATNShopTests.m; sourceTree = "<group>"; };
+		02E4940C1D7524C8009683E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02E494111D7524C8009683E6 /* ATNShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATNShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02E494151D7524C8009683E6 /* ATNShopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATNShopUITests.m; sourceTree = "<group>"; };
+		02E494171D7524C8009683E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02E493EA1D7524C8009683E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02E494031D7524C8009683E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02E4940E1D7524C8009683E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02E493E41D7524C8009683E6 = {
+			isa = PBXGroup;
+			children = (
+				02E493EF1D7524C8009683E6 /* ATNShop */,
+				02E494091D7524C8009683E6 /* ATNShopTests */,
+				02E494141D7524C8009683E6 /* ATNShopUITests */,
+				02E493EE1D7524C8009683E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		02E493EE1D7524C8009683E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02E493ED1D7524C8009683E6 /* ATNShop.app */,
+				02E494061D7524C8009683E6 /* ATNShopTests.xctest */,
+				02E494111D7524C8009683E6 /* ATNShopUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02E493EF1D7524C8009683E6 /* ATNShop */ = {
+			isa = PBXGroup;
+			children = (
+				02E493F31D7524C8009683E6 /* AppDelegate.h */,
+				02E493F41D7524C8009683E6 /* AppDelegate.m */,
+				02E493F61D7524C8009683E6 /* ViewController.h */,
+				02E493F71D7524C8009683E6 /* ViewController.m */,
+				02E493F91D7524C8009683E6 /* Main.storyboard */,
+				02E493FC1D7524C8009683E6 /* Assets.xcassets */,
+				02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */,
+				02E494011D7524C8009683E6 /* Info.plist */,
+				02E493F01D7524C8009683E6 /* Supporting Files */,
+			);
+			path = ATNShop;
+			sourceTree = "<group>";
+		};
+		02E493F01D7524C8009683E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				02E493F11D7524C8009683E6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02E494091D7524C8009683E6 /* ATNShopTests */ = {
+			isa = PBXGroup;
+			children = (
+				02E4940A1D7524C8009683E6 /* ATNShopTests.m */,
+				02E4940C1D7524C8009683E6 /* Info.plist */,
+			);
+			path = ATNShopTests;
+			sourceTree = "<group>";
+		};
+		02E494141D7524C8009683E6 /* ATNShopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				02E494151D7524C8009683E6 /* ATNShopUITests.m */,
+				02E494171D7524C8009683E6 /* Info.plist */,
+			);
+			path = ATNShopUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		02E493EC1D7524C8009683E6 /* ATNShop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02E4941A1D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShop" */;
+			buildPhases = (
+				02E493E91D7524C8009683E6 /* Sources */,
+				02E493EA1D7524C8009683E6 /* Frameworks */,
+				02E493EB1D7524C8009683E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ATNShop;
+			productName = ATNShop;
+			productReference = 02E493ED1D7524C8009683E6 /* ATNShop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		02E494051D7524C8009683E6 /* ATNShopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02E4941D1D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShopTests" */;
+			buildPhases = (
+				02E494021D7524C8009683E6 /* Sources */,
+				02E494031D7524C8009683E6 /* Frameworks */,
+				02E494041D7524C8009683E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02E494081D7524C8009683E6 /* PBXTargetDependency */,
+			);
+			name = ATNShopTests;
+			productName = ATNShopTests;
+			productReference = 02E494061D7524C8009683E6 /* ATNShopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		02E494101D7524C8009683E6 /* ATNShopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02E494201D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShopUITests" */;
+			buildPhases = (
+				02E4940D1D7524C8009683E6 /* Sources */,
+				02E4940E1D7524C8009683E6 /* Frameworks */,
+				02E4940F1D7524C8009683E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02E494131D7524C8009683E6 /* PBXTargetDependency */,
+			);
+			name = ATNShopUITests;
+			productName = ATNShopUITests;
+			productReference = 02E494111D7524C8009683E6 /* ATNShopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02E493E51D7524C8009683E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "王赛";
+				TargetAttributes = {
+					02E493EC1D7524C8009683E6 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					02E494051D7524C8009683E6 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 02E493EC1D7524C8009683E6;
+					};
+					02E494101D7524C8009683E6 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 02E493EC1D7524C8009683E6;
+					};
+				};
+			};
+			buildConfigurationList = 02E493E81D7524C8009683E6 /* Build configuration list for PBXProject "ATNShop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 02E493E41D7524C8009683E6;
+			productRefGroup = 02E493EE1D7524C8009683E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02E493EC1D7524C8009683E6 /* ATNShop */,
+				02E494051D7524C8009683E6 /* ATNShopTests */,
+				02E494101D7524C8009683E6 /* ATNShopUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02E493EB1D7524C8009683E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02E494001D7524C8009683E6 /* LaunchScreen.storyboard in Resources */,
+				02E493FD1D7524C8009683E6 /* Assets.xcassets in Resources */,
+				02E493FB1D7524C8009683E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02E494041D7524C8009683E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02E4940F1D7524C8009683E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02E493E91D7524C8009683E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02E493F81D7524C8009683E6 /* ViewController.m in Sources */,
+				02E493F51D7524C8009683E6 /* AppDelegate.m in Sources */,
+				02E493F21D7524C8009683E6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02E494021D7524C8009683E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02E4940B1D7524C8009683E6 /* ATNShopTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02E4940D1D7524C8009683E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02E494161D7524C8009683E6 /* ATNShopUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02E494081D7524C8009683E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02E493EC1D7524C8009683E6 /* ATNShop */;
+			targetProxy = 02E494071D7524C8009683E6 /* PBXContainerItemProxy */;
+		};
+		02E494131D7524C8009683E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02E493EC1D7524C8009683E6 /* ATNShop */;
+			targetProxy = 02E494121D7524C8009683E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		02E493F91D7524C8009683E6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02E493FA1D7524C8009683E6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02E493FF1D7524C8009683E6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		02E494181D7524C8009683E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		02E494191D7524C8009683E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		02E4941B1D7524C8009683E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ATNShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		02E4941C1D7524C8009683E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ATNShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShop";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		02E4941E1D7524C8009683E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ATNShopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATNShop.app/ATNShop";
+			};
+			name = Debug;
+		};
+		02E4941F1D7524C8009683E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ATNShopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShopTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATNShop.app/ATNShop";
+			};
+			name = Release;
+		};
+		02E494211D7524C8009683E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ATNShopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShopUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ATNShop;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		02E494221D7524C8009683E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ATNShopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShopUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ATNShop;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02E493E81D7524C8009683E6 /* Build configuration list for PBXProject "ATNShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02E494181D7524C8009683E6 /* Debug */,
+				02E494191D7524C8009683E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02E4941A1D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02E4941B1D7524C8009683E6 /* Debug */,
+				02E4941C1D7524C8009683E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		02E4941D1D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02E4941E1D7524C8009683E6 /* Debug */,
+				02E4941F1D7524C8009683E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		02E494201D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02E494211D7524C8009683E6 /* Debug */,
+				02E494221D7524C8009683E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 02E493E51D7524C8009683E6 /* Project object */;
+}
