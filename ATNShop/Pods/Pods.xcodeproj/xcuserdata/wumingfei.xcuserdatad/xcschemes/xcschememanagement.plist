@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JSONModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F0799C2F2BF3FFAB5C0B3188679E90B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A62B205D43919BD3EE26E3090BF32BB</key>
+		<key>53072FF6D3B54A834A05C2BCEFAFAB61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,12 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>91C2C14A5420CF99181AFC53710F259F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C34A55CEB3C145E80648711D41BC9D00</key>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ADD32FC4A1DFF140C7AEAAE6D13E28FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

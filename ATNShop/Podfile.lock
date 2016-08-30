@@ -19,6 +19,9 @@ PODS:
   - AMapFoundation (1.2.0)
   - AMapSearch (4.2.0):
     - AMapFoundation (~> 1.0)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - JSONModel (1.4.0)
   - MJRefresh (3.1.12)
   - SDWebImage (3.8.1):
@@ -30,6 +33,7 @@ DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - AMap2DMap (~> 4.2.0)
   - AMapSearch (~> 4.2.0)
+  - FMDB (~> 2.6.2)
   - JSONModel (~> 1.4.0)
   - MJRefresh (~> 3.1.12)
   - SDWebImage (~> 3.8.1)
@@ -40,6 +44,7 @@ SPEC CHECKSUMS:
   AMap2DMap: 82228a353bafa585f58c600bf7ee4687072b2e43
   AMapFoundation: 8acc2bf4eed79aab4d21002ddb8b24a6f3f3621c
   AMapSearch: 788020fca7ed18819e8bc2bfca716a6775a05ada
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   JSONModel: 58fe3f8c29ff95ed94e7ee7dde87e807f5da5371
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
