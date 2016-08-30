@@ -426,7 +426,7 @@
 				INFOPLIST_FILE = ATNShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aitni.www.ATNShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
