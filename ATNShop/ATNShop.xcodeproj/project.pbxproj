@@ -152,7 +152,6 @@
 		15EEAE1A1D756CE600872D42 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAD901D756CE600872D42 /* Foundation+Log.m */; };
 		15EEAE1B1D756CE600872D42 /* ShopPicturesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAD921D756CE600872D42 /* ShopPicturesController.m */; };
 		15EEAE1E1D75704400872D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15EEAE1D1D75704400872D42 /* Assets.xcassets */; };
-		15EEAE201D75705600872D42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15EEAE1F1D75705600872D42 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -466,7 +465,6 @@
 		15EEAD921D756CE600872D42 /* ShopPicturesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopPicturesController.m; sourceTree = "<group>"; };
 		15EEAE1C1D756E5C00872D42 /* ShopATN.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopATN.pch; sourceTree = "<group>"; };
 		15EEAE1D1D75704400872D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		15EEAE1F1D75705600872D42 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		313D90904EC2764623569B6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4A9B68AC46C22919C90749 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9239E9F097A50C151F09F6E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -547,7 +545,6 @@
 				15EEAE1D1D75704400872D42 /* Assets.xcassets */,
 				02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */,
 				02E494011D7524C8009683E6 /* Info.plist */,
-				15EEAE1F1D75705600872D42 /* Images.xcassets */,
 				02E493F01D7524C8009683E6 /* Supporting Files */,
 			);
 			path = ATNShop;
@@ -1516,7 +1513,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EEAD9F1D756CE600872D42 /* LPPageViewMenu.xib in Resources */,
-				15EEAE201D75705600872D42 /* Images.xcassets in Resources */,
 				02E494001D7524C8009683E6 /* LaunchScreen.storyboard in Resources */,
 				15EEAE1E1D75704400872D42 /* Assets.xcassets in Resources */,
 				02E493FB1D7524C8009683E6 /* Main.storyboard in Resources */,
