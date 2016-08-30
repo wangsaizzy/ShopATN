@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JSONModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A3044FE83F4D264E319AEC7BA1D6D81</key>
+		<key>1F0799C2F2BF3FFAB5C0B3188679E90B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>226BADBB340A6789F20AB87CA6BDE8FE</key>
+		<key>5A62B205D43919BD3EE26E3090BF32BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F26C98E751A304B274EAF870BC5A306E</key>
+		<key>C34A55CEB3C145E80648711D41BC9D00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E89EA0620E22EDB775A7C107518644DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
