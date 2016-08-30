@@ -10,7 +10,6 @@
 		02E493F21D7524C8009683E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E493F11D7524C8009683E6 /* main.m */; };
 		02E493F51D7524C8009683E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E493F41D7524C8009683E6 /* AppDelegate.m */; };
 		02E493FB1D7524C8009683E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E493F91D7524C8009683E6 /* Main.storyboard */; };
-		02E493FD1D7524C8009683E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02E493FC1D7524C8009683E6 /* Assets.xcassets */; };
 		02E494001D7524C8009683E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */; };
 		02E4940B1D7524C8009683E6 /* ATNShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4940A1D7524C8009683E6 /* ATNShopTests.m */; };
 		02E494161D7524C8009683E6 /* ATNShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E494151D7524C8009683E6 /* ATNShopUITests.m */; };
@@ -152,6 +151,8 @@
 		15EEAE191D756CE600872D42 /* ZHPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAD8C1D756CE600872D42 /* ZHPickerView.m */; };
 		15EEAE1A1D756CE600872D42 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAD901D756CE600872D42 /* Foundation+Log.m */; };
 		15EEAE1B1D756CE600872D42 /* ShopPicturesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAD921D756CE600872D42 /* ShopPicturesController.m */; };
+		15EEAE1E1D75704400872D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15EEAE1D1D75704400872D42 /* Assets.xcassets */; };
+		15EEAE201D75705600872D42 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15EEAE1F1D75705600872D42 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,7 +178,6 @@
 		02E493F31D7524C8009683E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		02E493F41D7524C8009683E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		02E493FA1D7524C8009683E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		02E493FC1D7524C8009683E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02E493FF1D7524C8009683E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02E494011D7524C8009683E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02E494061D7524C8009683E6 /* ATNShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATNShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -464,6 +464,9 @@
 		15EEAD901D756CE600872D42 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		15EEAD911D756CE600872D42 /* ShopPicturesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopPicturesController.h; sourceTree = "<group>"; };
 		15EEAD921D756CE600872D42 /* ShopPicturesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopPicturesController.m; sourceTree = "<group>"; };
+		15EEAE1C1D756E5C00872D42 /* ShopATN.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopATN.pch; sourceTree = "<group>"; };
+		15EEAE1D1D75704400872D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15EEAE1F1D75705600872D42 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		313D90904EC2764623569B6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C4A9B68AC46C22919C90749 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		9239E9F097A50C151F09F6E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -539,10 +542,12 @@
 				15EEAD8F1D756CE600872D42 /* UploadImages */,
 				02E493F31D7524C8009683E6 /* AppDelegate.h */,
 				02E493F41D7524C8009683E6 /* AppDelegate.m */,
+				15EEAE1C1D756E5C00872D42 /* ShopATN.pch */,
 				02E493F91D7524C8009683E6 /* Main.storyboard */,
-				02E493FC1D7524C8009683E6 /* Assets.xcassets */,
+				15EEAE1D1D75704400872D42 /* Assets.xcassets */,
 				02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */,
 				02E494011D7524C8009683E6 /* Info.plist */,
+				15EEAE1F1D75705600872D42 /* Images.xcassets */,
 				02E493F01D7524C8009683E6 /* Supporting Files */,
 			);
 			path = ATNShop;
@@ -1511,8 +1516,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EEAD9F1D756CE600872D42 /* LPPageViewMenu.xib in Resources */,
+				15EEAE201D75705600872D42 /* Images.xcassets in Resources */,
 				02E494001D7524C8009683E6 /* LaunchScreen.storyboard in Resources */,
-				02E493FD1D7524C8009683E6 /* Assets.xcassets in Resources */,
+				15EEAE1E1D75704400872D42 /* Assets.xcassets in Resources */,
 				02E493FB1D7524C8009683E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1863,7 +1869,9 @@
 			baseConfigurationReference = 3C4A9B68AC46C22919C90749 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "/Users/wumingfei/Desktop/用户/ATNOnLineShop/ShopATN/ATNShop/ATNShop/ShopATN.pch";
 				INFOPLIST_FILE = ATNShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1877,7 +1885,9 @@
 			baseConfigurationReference = 9239E9F097A50C151F09F6E6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREFIX_HEADER = "/Users/wumingfei/Desktop/用户/ATNOnLineShop/ShopATN/ATNShop/ATNShop/ShopATN.pch";
 				INFOPLIST_FILE = ATNShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

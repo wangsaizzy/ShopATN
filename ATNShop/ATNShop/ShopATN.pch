@@ -1,0 +1,168 @@
+//
+//  ShopATN.pch
+//  ATNShop
+//
+//  Created by 吴明飞 on 16/8/30.
+//  Copyright © 2016年 王赛. All rights reserved.
+//
+
+#ifndef ShopATN_pch
+#define ShopATN_pch
+
+#import "UIView+Addition.h"
+#import "CSBlock.h"
+#import "SVProgressHUD.h"
+#import "TimeTool.h"
+// 第三方
+#import "ShopListCache.h"
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#include "UserModel.h"
+#import "HttpHelper.h"
+#import "AccountTool.h"
+#import "MJRefresh.h"
+#import "IsAppLoginTool.h"
+#define WS(weakself)  __weak __typeof(&*self)weakself = self;
+
+
+//屏幕适配
+#define kWight [UIScreen mainScreen].bounds.size.width
+#define kHeight [UIScreen mainScreen].bounds.size.height
+#define kMulriple [UIScreen mainScreen].bounds.size.width / 375.0
+#define kHMulriple [UIScreen mainScreen].bounds.size.height / 667.0
+
+#define fontCOLOR [UIColor colorWithRed:163/255.0f green:163/255.0f blue:163/255.0f alpha:1]
+#define RGBA(r,g,b,a) ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a])
+#define RGB(r,g,b)    ([UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1])
+
+
+#define ShowAlertView(msg) ([[[UIAlertView alloc]initWithTitle:@"温馨提示" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show])
+
+#define KFont [UIFont systemFontOfSize:16 * kMulriple]
+// 格式化字符串
+#define STRING(obj) ([NSString stringWithFormat:@"%@",obj])
+
+#define Key_DistrictSelectProvince          @"DistrictSelectProvince"
+#define Key_DistrictSelectProvinceCode      @"DistrictSelectProvinceCode"
+#define Key_DistrictSelectProvinceSubCode   @"DistrictSelectProvinceSubCode"
+#define Key_DistrictSelectProvinceSub       @"DistrictSelectProvinceSub"
+#define Key_DistrictSelectCityCode          @"DistrictSelectCityCode"
+
+
+
+#define KAMap2DMapKey @"3ad03bd0dea2b82d531c4cad6c8b1902"
+
+
+//测试版
+//#define Service_Url  @"http://123.56.71.215/app"
+
+#define Service_Url  @"http://123.57.144.19/app"
+
+//token
+#define KToken_url @"/refresh"
+
+//登录
+#define KLogin_url @"/shop/auth"
+
+//获取用户资料
+#define KUserinfor_url @"/shop/shop"
+
+//今日收入和今日订单数据
+#define KAnalysis_url @"/shop/shop/analysis"
+
+//活动申请
+#define KActivity_apply_url @"/shop/activity_apply"
+
+//系统消息
+#define KMessage_url @"/user/message"
+
+
+//获取商家一级分类
+#define KFirstCategory_url @"/user/shopcategory"
+
+//商家二级分类
+#define KNextCategory_url @"/user/shopcategory/%@"
+
+//上传商家头像
+#define KPortrait_url @"/shop/shop/%@/portrait"
+
+//商家横幅
+#define KBanner_url @"/shop/shop/%@/banner"
+
+//商家列表
+#define KThumbnail_url @"/shop/shop/%@/thumbnail"
+
+//上传商户资料
+#define KUploadUserInfo_url @"/shop/shop/%@"
+
+//上传相册
+#define kUploadImageArr_url @"/shop/shop/%@/album"
+
+//找回密码发送验证码
+#define KRecoverPasswordCode_url @"/user/user/recoverpassword/captcha"
+
+//找回密码
+#define KRecoverPassword_url @"/user/user/recoverpassword"
+
+//获取评价列表
+#define KVote_url @"/user/shop/%@/vote"
+
+//获取商品列表
+#define KGoods_url @"/shop/product"
+
+//商品发布
+#define KPublish_url @"/shop/product/%@/publish"
+
+//商品下架
+#define KUnPublish_url @"/shop/product/%@/unpublish"
+
+//商品删除
+#define KDeleteProduct_url @"/shop/product/%@"
+
+//添加商品
+#define KAddGoods_url @"/shop/product/offline"
+
+//修改商品
+#define KAlertGoods_url @"/shop/product/%@"
+
+//绑定支付宝账号
+#define KBindALIPay_url @"/shop/bind"
+
+//绑定银行卡账号
+#define KBankCard_url @"/shop/bind"
+
+//申请提现获取验证码
+#define KCashCaptcha_url @"/shop/cash/captcha"
+
+//申请提现
+#define KApplyCash_url @"/shop/cash"
+
+//历史提现
+#define KHistory_url @"/shop/cash"
+
+//获取提现余额
+#define KBanlance_url @"/user/account"
+
+//获取提现账号
+#define KAccountNo_url @"/shop/bind"
+
+//财务对账
+#define KCheckMoney_url @"/shop/order"
+
+//今日订单完成
+#define KComplete_url @"/shop/order"
+
+//预约
+#define KSubcribe_url @"/shop/appointment"
+
+//订单详情
+#define KDetailList_url @"/shop/order/%@"
+
+//提交反馈
+#define KFeedback_url @"/user/feedback"
+
+//获取版本
+#define KVersion_url @"/user/version"
+
+
+#endif /* ShopATN_pch */
