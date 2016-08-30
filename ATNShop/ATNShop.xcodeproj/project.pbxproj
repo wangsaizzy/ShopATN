@@ -414,7 +414,7 @@
 				INFOPLIST_FILE = ATNShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "www-.aitni.com.ATNShop";
+				PRODUCT_BUNDLE_IDENTIFIER = com.aitni.www.ATNShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -498,6 +498,7 @@
 				02E4941C1D7524C8009683E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02E4941D1D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShopTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +507,7 @@
 				02E4941F1D7524C8009683E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02E494201D7524C8009683E6 /* Build configuration list for PBXNativeTarget "ATNShopUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +516,7 @@
 				02E494221D7524C8009683E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
