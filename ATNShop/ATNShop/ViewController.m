@@ -21,6 +21,7 @@
     NSLog(@"hahah ");
     
     NSLog(@"我写了一句代码");
+    NSLog(@"22222222");
 }
 
 - (void)didReceiveMemoryWarning {
