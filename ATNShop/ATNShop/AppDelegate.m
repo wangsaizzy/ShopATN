@@ -33,26 +33,6 @@
      */
     [AMapServices sharedServices].apiKey = KAMap2DMapKey;
     
-    //    self.mapView = [[MAMapView alloc] init];
-    //    _mapView.delegate = self;
-    //
-    //    NSString *longitude = [NSString stringWithFormat:@"%@", [UserModel defaultModel].longitude];
-    //    NSString *latitude = [NSString stringWithFormat:@"%@", [UserModel defaultModel].latitude];
-    //
-    //    if ([longitude floatValue] > 0 && [latitude floatValue] > 0) {
-    //
-    //        _mapView.showsUserLocation = NO;    //YES 为打开定位，NO为关闭定位
-    //
-    //
-    //
-    //    } else {
-    //
-    //        _mapView.showsUserLocation = YES;    //YES 为打开定位，NO为关闭定位
-    //        _mapView.userTrackingMode = MAUserTrackingModeFollowWithHeading;
-    //
-    //        [_mapView setZoomLevel:16.1 animated:YES];
-    //    }
-    
     
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
