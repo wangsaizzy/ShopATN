@@ -20,12 +20,12 @@
 #import "LDActionSheet.h"
 #import "LDImagePicker.h"
 #import "ManagerModel.h"
-@interface ShopInformationController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, LDActionSheetDelegate, LDImagePickerDelegate, UIGestureRecognizerDelegate>
+@interface ShopInformationController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate,  UIGestureRecognizerDelegate>
 @property (nonatomic, strong) ShopInformationView *shopView;
 
 @property (nonatomic, assign) BOOL isHeadImage;
-@property (nonatomic, assign) BOOL isShowListImge;
-@property (nonatomic, assign) BOOL isBannerImage;
+@property (nonatomic, assign) BOOL isPublicizeImage;
+
 
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 
@@ -37,9 +37,6 @@
 
 @property (nonatomic, strong) CategoryNextModel *model;
 
-@property (nonatomic, copy) NSString *status;
-
-@property (nonatomic, strong) NSArray *imageArr;
 
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *latitude;
@@ -51,7 +48,7 @@
 @implementation ShopInformationController
 {
     
-    NSArray *_imageArr;
+    
     NSInteger _imageIndex;
     
     BOOL _isChangeImage;
@@ -97,7 +94,7 @@
 
 - (void)setupViews {
     
-    self.shopView = [[ShopInformationView alloc] initWithFrame:CGRectMake(0, 64 * kHMulriple, kWight, kHeight)];
+    self.shopView = [[ShopInformationView alloc] initWithFrame:CGRectMake(0, 60 * kHMulriple, kWight, kHeight)];
 
     [self.view addSubview:self.shopView];
     
@@ -114,23 +111,11 @@
     [self.view addGestureRecognizer:tap];
 
     
-    //横幅按钮点击事件
-    [_shopView.shopBannerBtn addTarget:self action:@selector(shopBannerBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //开关控件点击事件
-    [self.shopView.stateSwitch addTarget:self action:@selector(stateSwitchValueChangedAction:) forControlEvents:UIControlEventValueChanged];
     
     //头像按钮点击事件
     [self.shopView.headImageViewBtn addTarget:self action:@selector(headImageViewBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    //店铺分类选择按钮
-    [self.shopView.chooseCategoryBtn addTarget:self action:@selector(chooseCategoryBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //列表展示图按钮
-    [self.shopView.showListBtn addTarget:self action:@selector(showListBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //环境展示图按钮
-    [self.shopView.showEnvironmentBtn addTarget:self action:@selector(showEnvironmentBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_shopView.publicizeImageBtn addTarget:self action:@selector(publicizeImageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.shopView.mapBtn addTarget:self action:@selector(mapBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -158,47 +143,32 @@
     
     ManagerModel *model = [[ManagerModel alloc] initWithDic:dic];
     
-    if ([model.status isEqualToString:@"OPEN"]) {
-        
-        _shopView.shopStateLabel.text = @"营业中";
-        [_shopView.stateSwitch setOn:YES animated:YES];
-    }
-    if ([model.status isEqualToString:@"CLOSE"]) {
-        
-        _shopView.shopStateLabel.text = @"暂停营业";
-        [_shopView.stateSwitch setOn:NO animated:YES];
-    }
-    
     
     
     NSURL *headImageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Service_Url, model.portraitUrl]];
     
     [self.shopView.shopHeadImageView sd_setImageWithURL:headImageUrl placeholderImage:[UIImage imageNamed:@"headImage"]];
     
-    NSURL *listImageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Service_Url, model.thumbnailUrl]];
-    [self.shopView.shopListImageView sd_setImageWithURL:listImageUrl placeholderImage:[UIImage imageNamed:@"list"]];
-    
-    NSURL *bannerImageUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Service_Url, model.bannerUrl]];
-    [self.shopView.shopBannerImageView sd_setImageWithURL:bannerImageUrl placeholderImage:[UIImage imageNamed:@"banner"]];
     
     _shopView.shopNameTF.text = [NSString stringWithFormat:@" %@", model.name];
     
     
-    _shopView.detailAddressTV.text = model.address;
+    
+    if (model.address.length > 0) {
+        
+        _shopView.detailAddressTV.text = model.address;
+        _shopView.detailAddressTV.placeholder = nil;
+    }
     
     _shopView.phoneTF.text = [NSString stringWithFormat:@" %@", model.phone];
-    
     
 
     NSNumber *backRate = model.backRate;
     float backRateCount = [backRate floatValue];
     int backRateNum = 100 * backRateCount;
-    _shopView.discountLabel.text = [NSString stringWithFormat:@" %d%%折扣",backRateNum];
+    _shopView.discountTF.text = [NSString stringWithFormat:@" %d",backRateNum];
     
-    _shopView.chooseCategoryLabel.text = [NSString stringWithFormat:@"%@-%@", model.categoryName, model.categoryNextName];
-    
-    self.imageArr = model.album;
-    
+
     self.longitude = model.longitude;
     
     self.latitude = model.latitude;
@@ -216,19 +186,28 @@
 #pragma mark -更改按钮方法
 - (void)alertBtnAction:(UIButton *)sender {
     
+    if (_shopView.shopNameTF.text.length == 0) {
+        
+        ShowAlertView(@"请输入店铺名称");
+        return;
+    }
     
     if (_shopView.detailAddressTV.text.length == 0) {
         ShowAlertView(@"请输入店铺地址");
         return;
     }
-    if (_shopView.chooseCategoryLabel.text.length == 0) {
-        ShowAlertView(@"请选择店铺分类");
+    
+    if (_shopView.descriptionTV.text.length == 0) {
+        
+        ShowAlertView(@"请输入店铺描述");
         return;
     }
+    
     if (_shopView.phoneTF.text.length == 0) {
         ShowAlertView(@"请输入电话号码");
         return;
     }
+    
     
     // 更新资料
     [self startUpDataUserInfo];
@@ -275,7 +254,7 @@
 - (void)startUpDataUserInfo {
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    
+    [dict setObject:_shopView.shopNameTF.text forKey:@"name"];
        
     NSString *longitude = [NSString stringWithFormat:@"%.2f", [self.annotation coordinate].longitude];
     NSString *latitude = [NSString stringWithFormat:@"%.2f", [self.annotation coordinate].latitude];
@@ -293,16 +272,15 @@
         [dict setObject:self.model.id forKey:@"category"];
     }
     
+    
+    
     NSString *phoneStr = [_shopView.phoneTF.text substringFromIndex:1];
     [dict setObject:phoneStr forKey:@"phone"];
     
-    if (self.status) {
-        
-       [dict setObject:self.status forKey:@"status"];
-    }
     
     
-    [dict setObject:_shopView.shopNameTF.text forKey:@"name"];
+    
+    
     
     WS(weakself);
     
@@ -336,53 +314,24 @@
 }
 
 
-#pragma mark -开关方法
-- (void)stateSwitchValueChangedAction:(UISwitch *)sender {
-    
-    if (sender.isOn) {
-        
-        self.status = @"OPEN";
-    } else {
-        
-        self.status = @"CLOSE";
-    }
-}
 
 #pragma mark -头像
 - (void)headImageViewBtnAction:(UIButton *)sender {
     
     _isHeadImage = YES;
-    _isShowListImge = NO;
+    _isPublicizeImage = NO;
     
     [self upLoadPhotosFromCameraOrGraph];
 }
 
-- (void)shopBannerBtnAction:(UIButton *)sender {
+- (void)publicizeImageBtnAction:(UIButton *)sender {
     
-    LDActionSheet *actionSheet = [[LDActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选取", nil];
-    [actionSheet showInView:self.view];
+    _isHeadImage = NO;
+    _isPublicizeImage = YES;
+
+    [self upLoadPhotosFromCameraOrGraph];
 }
 
-
-- (void)actionSheet:(LDActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    LDImagePicker *picker = [LDImagePicker sharedInstance];
-    
-    picker.delegate = self;
-    [picker showImagePickerWithType:buttonIndex InViewController:self Scale:0.2];
-    
-}
-
-- (void)imagePicker:(LDImagePicker *)imagePicker didFinished:(UIImage *)editedImage{
-    self.shopView.shopBannerImageView.image = editedImage;
-    NSString *urlStringBanner = [NSString stringWithFormat:@"/shop/shop/%@/banner", [AccountTool unarchiveShopId]];
-    //更新横幅
-    [self uploadImageWithUrl:urlStringBanner image:_shopView.shopBannerImageView.image];
-    
-}
-
-- (void)imagePickerDidCancel:(LDImagePicker *)imagePicker{
-    
-}
 
 - (void)mapBtnAction:(UIButton *)sender {
     
@@ -404,18 +353,6 @@
 }
 
 
-#pragma mark -店铺分类
-- (void)chooseCategoryBtnAction:(UIButton *)sender {
-
-    WS(weakself);
-    ShopCategoryController *categoryVC = [[ShopCategoryController alloc] init];
-    categoryVC.ChangeCategory = ^(CategoryNextModel *model) {
-        
-        weakself.model = model;
-        weakself.shopView.chooseCategoryLabel.text = [NSString stringWithFormat:@"%@-%@", model.parentName, model.name];
-    };
-    [self.navigationController pushViewController:categoryVC animated:YES];
-}
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -429,33 +366,32 @@
     
     
     //自定义导航栏
-    UIView *naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 64 * kHMulriple)];
+    UIView *naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 60 * kHMulriple)];
     naviView.backgroundColor = RGB(83, 83, 83);
     
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(0, 25 * kHMulriple, 80 * kMulriple, 30 * kHMulriple);
+    backBtn.frame = CGRectMake(0, 25 * kHMulriple, 112 * kMulriple, 30 * kHMulriple);
     
     [backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(15 * kMulriple, 2.5 * kHMulriple, 15 * kMulriple, 25 * kHMulriple)];
+    UIImageView *arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(10 * kMulriple, 2.5 * kHMulriple, 12 * kMulriple, 19 * kHMulriple)];
     arrowImage.image = [UIImage imageNamed:@"arrowImage"];
     [backBtn addSubview:arrowImage];
 
     [naviView addSubview:backBtn];
     
-    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(137 * kMulriple, 20 * kHMulriple, 100 * kMulriple, 40 * kHMulriple)];
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 0, 90 * kMulriple, 25 * kHMulriple)];
     textLabel.text = @"店铺信息";
     textLabel.textColor = [UIColor whiteColor];
-    textLabel.font = [UIFont systemFontOfSize:20 * kMulriple];
-    textLabel.centerX = naviView.width / 2;
+    textLabel.font = [UIFont systemFontOfSize:18 * kMulriple];
     
-    [naviView addSubview:textLabel];
+    [backBtn addSubview:textLabel];
     
     //更改按钮
     UIButton *alertBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    alertBtn.frame = CGRectMake(330 * kMulriple, 25 * kHMulriple, 40 * kMulriple, 30 * kMulriple);
-    [alertBtn setTitle:@"更改" forState:UIControlStateNormal];
+    alertBtn.frame = CGRectMake(330 * kMulriple, 27 * kHMulriple, 40 * kMulriple, 25 * kMulriple);
+    [alertBtn setTitle:@"保存" forState:UIControlStateNormal];
     [alertBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     alertBtn.titleLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
     [alertBtn addTarget:self action:@selector(alertBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -467,24 +403,6 @@
     
 }
 
-#pragma mark -列表展示图片
-- (void)showListBtnAction:(UIButton *)sender {
-    
-    _isShowListImge = YES;
-    _isHeadImage = NO;
-    
-    [self upLoadPhotosFromCameraOrGraph];
-}
-
-#pragma mark -环境展示图片
-- (void)showEnvironmentBtnAction:(UIButton *)sender {
-    
-    ShopPicturesController *pictureVC = [[ShopPicturesController alloc] init];
-    
-    pictureVC.imageSourceArr = self.imageArr;
-    
-    [self.navigationController pushViewController:pictureVC animated:YES];
-}
 
 
 
@@ -522,18 +440,6 @@
     
 }
 
-- (UIImage *)imageFromView: (UIView *)theView   atFrame:(CGRect)r
-{
-    UIGraphicsBeginImageContext(theView.frame.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
-    UIRectClip(r);
-    [theView.layer renderInContext:context];
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return  theImage;//[self getImageAreaFromImage:theImage atFrame:r];
-}
 
 #pragma mark - UIImagePickerViewControllerDelegate
 // 添加图片
@@ -554,14 +460,17 @@
         _isHeadImage = YES;
         
     }
-    if (_isShowListImge) {
-        _shopView.shopListImageView.image = image;
-        NSString *urlStringList = [NSString stringWithFormat:@"/shop/shop/%@/thumbnail", [AccountTool unarchiveShopId]];
+    
+    if (_isPublicizeImage) {
         
-        //更新列表展示图
-        [self uploadImageWithUrl:urlStringList image:_shopView.shopListImageView.image];
-        _isShowListImge = YES;
+        _shopView.publicizeImageView.image = image;
         
+        NSString *urlStringBanner = [NSString stringWithFormat:@"/shop/shop/%@/banner", [AccountTool unarchiveShopId]];
+        //更新横幅
+        [self uploadImageWithUrl:urlStringBanner image:_shopView.publicizeImageView.image];
+
+        
+        _isPublicizeImage = YES;
     }
     
     

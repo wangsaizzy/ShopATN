@@ -61,7 +61,7 @@
 
 - (void)keyboardWillShow:(NSNotification *)noti
 {
-    CGFloat keyboardHeight = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height + 40 * kHMulriple;
+    CGFloat keyboardHeight = [noti.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height + 20 * kHMulriple;
     [self.view.layer removeAllAnimations];
     UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
     UIView *firstResponderView = [keyWindow performSelector:@selector(findFirstResponder)];

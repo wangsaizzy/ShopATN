@@ -39,6 +39,7 @@
 #define ShowAlertView(msg) ([[[UIAlertView alloc]initWithTitle:@"温馨提示" message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show])
 
 #define KFont [UIFont systemFontOfSize:16 * kMulriple]
+#define K17Font [UIFont systemFontOfSize:17 * kMulriple]
 // 格式化字符串
 #define STRING(obj) ([NSString stringWithFormat:@"%@",obj])
 
@@ -50,13 +51,13 @@
 
 
 
-#define KAMap2DMapKey @"3ad03bd0dea2b82d531c4cad6c8b1902"
+#define KAMap2DMapKey @"170b98cd6d51c2e62c8086bdce084610"
 
 
 //测试版
-//#define Service_Url  @"http://123.56.71.215/app"
+#define Service_Url  @"http://123.56.71.215/app"
 
-#define Service_Url  @"http://123.57.144.19/app"
+//#define Service_Url  @"http://123.57.144.19/app"
 
 //token
 #define KToken_url @"/refresh"

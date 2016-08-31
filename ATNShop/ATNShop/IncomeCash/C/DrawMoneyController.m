@@ -158,7 +158,7 @@
     if ([UserModel defaultModel].accountNo.length == 0) {
         BingDingNumberController *numberVC = [BingDingNumberController new];
         UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-        backItem.title = @"绑定提现账号";
+        backItem.title = @"绑定账号";
         self.navigationItem.backBarButtonItem = backItem;
 
         [self.navigationController pushViewController:numberVC animated:YES];

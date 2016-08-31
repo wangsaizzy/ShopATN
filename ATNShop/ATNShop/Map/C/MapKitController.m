@@ -390,7 +390,7 @@ updatingLocation:(BOOL)updatingLocation
     
     [backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImageView *arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(15 * kMulriple, 2.5 * kHMulriple, 15 * kMulriple, 25 * kHMulriple)];
+    UIImageView *arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(10 * kMulriple, 2.5 * kHMulriple, 12 * kMulriple, 19 * kHMulriple)];
     arrowImage.image = [UIImage imageNamed:@"arrowImage"];
     [backBtn addSubview:arrowImage];
 
