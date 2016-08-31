@@ -327,7 +327,7 @@
     NSLog(@"%ld, %ld", indexPath.section, indexPath.row);
     
     
-    NSString *cityName = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+//    NSString *cityName = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
    
     
     

@@ -9,7 +9,7 @@
 #import "LDActionSheet.h"
 #define ScreenWidth   [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight  [UIScreen mainScreen].bounds.size.height
-#define RGB(r,g,b)    [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+//#define RGB(r,g,b)    [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 #define TitleFont     [UIFont systemFontOfSize:18.0f]
 
 #define TitleHeight 60.0f

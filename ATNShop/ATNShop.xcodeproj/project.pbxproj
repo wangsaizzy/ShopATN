@@ -150,7 +150,6 @@
 		15EEAE4B1D758B3600872D42 /* ListDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAE3C1D758B3600872D42 /* ListDetailModel.m */; };
 		15EEAE4C1D758B3600872D42 /* SubscribeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAE3E1D758B3600872D42 /* SubscribeModel.m */; };
 		15EEAE4D1D758B3600872D42 /* AppointmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAE411D758B3600872D42 /* AppointmentCell.m */; };
-		15EEAE4E1D758B3600872D42 /* CompleteViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAE421D758B3600872D42 /* CompleteViewCell.m */; };
 		15EEAE4F1D758B3600872D42 /* ListDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAE441D758B3600872D42 /* ListDetailView.m */; };
 /* End PBXBuildFile section */
 
@@ -461,7 +460,6 @@
 		15EEAE3E1D758B3600872D42 /* SubscribeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeModel.m; sourceTree = "<group>"; };
 		15EEAE401D758B3600872D42 /* AppointmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppointmentCell.h; sourceTree = "<group>"; };
 		15EEAE411D758B3600872D42 /* AppointmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppointmentCell.m; sourceTree = "<group>"; };
-		15EEAE421D758B3600872D42 /* CompleteViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteViewCell.m; sourceTree = "<group>"; };
 		15EEAE431D758B3600872D42 /* ListDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailView.h; sourceTree = "<group>"; };
 		15EEAE441D758B3600872D42 /* ListDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailView.m; sourceTree = "<group>"; };
 		313D90904EC2764623569B6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1380,7 +1378,6 @@
 			children = (
 				15EEAE401D758B3600872D42 /* AppointmentCell.h */,
 				15EEAE411D758B3600872D42 /* AppointmentCell.m */,
-				15EEAE421D758B3600872D42 /* CompleteViewCell.m */,
 				15EEAE431D758B3600872D42 /* ListDetailView.h */,
 				15EEAE441D758B3600872D42 /* ListDetailView.m */,
 			);
@@ -1667,7 +1664,6 @@
 				15EEADC21D756CE600872D42 /* SearchResultView.m in Sources */,
 				15EEADE11D756CE600872D42 /* DACircularProgressView.m in Sources */,
 				15EEADC51D756CE600872D42 /* BackAdviseController.m in Sources */,
-				15EEAE4E1D758B3600872D42 /* CompleteViewCell.m in Sources */,
 				15EEADF01D756CE600872D42 /* ZLCameraViewController.m in Sources */,
 				15EEAD941D756CE600872D42 /* HistoryCashController.m in Sources */,
 				15EEAE4C1D758B3600872D42 /* SubscribeModel.m in Sources */,
