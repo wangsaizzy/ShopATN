@@ -79,7 +79,6 @@
 		15EEADD11D756CE600872D42 /* ShopInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACDA1D756CE600872D42 /* ShopInformationModel.m */; };
 		15EEADD21D756CE600872D42 /* DropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACDD1D756CE600872D42 /* DropDownMenu.m */; };
 		15EEADD31D756CE600872D42 /* ShopInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACDF1D756CE600872D42 /* ShopInformationView.m */; };
-		15EEADD41D756CE600872D42 /* ApplyActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACE31D756CE600872D42 /* ApplyActivityController.m */; };
 		15EEADD51D756CE600872D42 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACE51D756CE600872D42 /* NewsViewController.m */; };
 		15EEADD61D756CE600872D42 /* ShopManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACE71D756CE600872D42 /* ShopManagerController.m */; };
 		15EEADD71D756CE600872D42 /* ArchiveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEACEA1D756CE600872D42 /* ArchiveHelper.m */; };
@@ -313,8 +312,6 @@
 		15EEACDD1D756CE600872D42 /* DropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownMenu.m; sourceTree = "<group>"; };
 		15EEACDE1D756CE600872D42 /* ShopInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopInformationView.h; sourceTree = "<group>"; };
 		15EEACDF1D756CE600872D42 /* ShopInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopInformationView.m; sourceTree = "<group>"; };
-		15EEACE21D756CE600872D42 /* ApplyActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyActivityController.h; sourceTree = "<group>"; };
-		15EEACE31D756CE600872D42 /* ApplyActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyActivityController.m; sourceTree = "<group>"; };
 		15EEACE41D756CE600872D42 /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		15EEACE51D756CE600872D42 /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		15EEACE61D756CE600872D42 /* ShopManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopManagerController.h; sourceTree = "<group>"; };
@@ -1016,8 +1013,6 @@
 		15EEACE11D756CE600872D42 /* C */ = {
 			isa = PBXGroup;
 			children = (
-				15EEACE21D756CE600872D42 /* ApplyActivityController.h */,
-				15EEACE31D756CE600872D42 /* ApplyActivityController.m */,
 				15EEACE41D756CE600872D42 /* NewsViewController.h */,
 				15EEACE51D756CE600872D42 /* NewsViewController.m */,
 				15EEACE61D756CE600872D42 /* ShopManagerController.h */,
@@ -1630,7 +1625,6 @@
 				15EEADFC1D756CE600872D42 /* UIViewController+Alert.m in Sources */,
 				15EEADEC1D756CE600872D42 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				15EEAE1A1D756CE600872D42 /* Foundation+Log.m in Sources */,
-				15EEADD41D756CE600872D42 /* ApplyActivityController.m in Sources */,
 				15EEAE031D756CE600872D42 /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
 				15EEAE461D758B3600872D42 /* BeingProcessedController.m in Sources */,
 				15EEADCF1D756CE600872D42 /* CategoryNextModel.m in Sources */,

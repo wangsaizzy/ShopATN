@@ -25,13 +25,14 @@
     //背景视图
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 20 * kHMulriple, kWight, 200 * kHMulriple)];
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:headView.bounds];
-    backImageView.image = [UIImage imageNamed:@"shopBackGround"];
-    [backImageView addSubview:self.photoImageView];
-    [backImageView addSubview:self.nameLabel];
-    [backImageView addSubview:self.setUpBtn];
-    [backImageView addSubview:self.messageBtn];
-    [backImageView addSubview:self.codeBtn];
     [headView addSubview:backImageView];
+    backImageView.image = [UIImage imageNamed:@"shopBackGround"];
+    [headView addSubview:self.photoImageView];
+    [headView addSubview:self.nameLabel];
+    [headView addSubview:self.setUpBtn];
+    [headView addSubview:self.messageBtn];
+    [headView addSubview:self.codeBtn];
+    
     [self addSubview:headView];
     
     //中间视图

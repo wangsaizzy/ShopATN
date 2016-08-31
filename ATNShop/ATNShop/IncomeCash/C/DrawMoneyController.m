@@ -56,19 +56,13 @@
 }
 
 - (void)customNaviBar {
-    self.title = @"收入提现";
-    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrowImage"] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
-    self.navigationItem.leftBarButtonItem = left;
+   
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20 * kMulriple], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
     self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
 }
 
-- (void)handleBack:(UIBarButtonItem *)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 - (void)setupViews {
@@ -163,7 +157,10 @@
     
     if ([UserModel defaultModel].accountNo.length == 0) {
         BingDingNumberController *numberVC = [BingDingNumberController new];
-        
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+        backItem.title = @"绑定提现账号";
+        self.navigationItem.backBarButtonItem = backItem;
+
         [self.navigationController pushViewController:numberVC animated:YES];
         
     } else  {
@@ -179,6 +176,10 @@
         return;
     } else  {
         ApplyCashController *applyVC = [[ApplyCashController alloc] init];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+        backItem.title = @"申请提现";
+        self.navigationItem.backBarButtonItem = backItem;
+
         applyVC.applyAccount = [UserModel defaultModel].accountNo;
         applyVC.balance = self.balanceString;
         applyVC.bankInfoId = self.bankInfoId;
@@ -195,6 +196,10 @@
     } else  {
      
         HistoryCashController *cashVC = [[HistoryCashController alloc] init];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+        backItem.title = @"历史提现";
+        self.navigationItem.backBarButtonItem = backItem;
+
         [self.navigationController pushViewController:cashVC animated:YES];
     }
     

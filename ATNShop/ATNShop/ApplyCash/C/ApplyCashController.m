@@ -34,26 +34,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self customNaviBar];
+    
     [self setupViews];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(secretTFEditChanged:) name:@"UITextFieldTextDidChangeNotification" object:_applyView.secretTF];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(testTFEditChanged:) name:@"UITextFieldTextDidChangeNotification" object:_applyView.testTF];
 }
 
-- (void)customNaviBar {
-    
-    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrowImage"] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
-    self.navigationItem.leftBarButtonItem = left;
-}
-
-- (void)handleBack:(UIBarButtonItem *)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 - (void)setupViews {
-    self.title = @"申请提现";
+    
     
     self.view.backgroundColor = RGB(238, 238, 238);
     self.applyView = [[ApplyCashView alloc] initWithFrame:self.view.bounds];
