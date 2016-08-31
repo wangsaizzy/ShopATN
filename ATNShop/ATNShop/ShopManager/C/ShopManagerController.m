@@ -24,7 +24,10 @@
 #import "ServerForCodeText.h"
 #import "ApplyActivityController.h"
 #import "ManagerModel.h"
+#import "ShopManagerView.h"
 @interface ShopManagerController ()
+@property (nonatomic, strong) ShopManagerView *managerView;
+
 @property (nonatomic, strong) UIImageView *photoImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *priceLabel;
@@ -125,9 +128,9 @@
     [UserModel defaultModel].shopName = model.name;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Service_Url, model.portraitUrl]];
-    [self.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"headImage"] options:SDWebImageRefreshCached];
+    [self.managerView.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"headImage"] options:SDWebImageRefreshCached];
     
-    self.nameLabel.text = model.name;
+    self.managerView.nameLabel.text = model.name;
 
     self.shopName = model.name;
     
@@ -161,28 +164,28 @@
             float b = [income floatValue];
             float c = b - a;
             
-            self.priceLabel.text = [NSString stringWithFormat:@"￥%ld.", a];
+            self.managerView.priceLabel.text = [NSString stringWithFormat:@"￥%ld.", a];
             
-            self.priceLabel.frame = CGRectMake(10 * kMulriple, 5 * kHMulriple, [self widthForContentText:self.priceLabel.text], 30 * kHMulriple);
+            self.managerView.priceLabel.frame = CGRectMake(10 * kMulriple, 5 * kHMulriple, [self widthForContentText:self.priceLabel.text], 30 * kHMulriple);
             self.priceLittleLabel.frame = CGRectMake([self widthForContentText:self.priceLabel.text] + 10 * kMulriple, 13 * kHMulriple, 40 * kMulriple, 20 * kHMulriple);
             NSString *subStr = [NSString stringWithFormat:@"%.2f", c];
             self.priceLittleLabel.text = [subStr substringWithRange:NSMakeRange(2, 2)];
             
         } else {
-            self.priceLabel.text = @"￥0.";
-            self.priceLittleLabel.text = @"00";
-            self.priceLabel.frame = CGRectMake(10 * kMulriple, 5 * kHMulriple, 50 * kMulriple, 30 * kHMulriple);
-            self.priceLittleLabel.frame = CGRectMake(55 * kMulriple, 12.5 * kHMulriple, 40 * kMulriple, 20 * kHMulriple);
+            self.managerView.priceLabel.text = @"￥0.";
+            self.managerView.priceLittleLabel.text = @"00";
+            self.managerView.priceLabel.frame = CGRectMake(10 * kMulriple, 5 * kHMulriple, 50 * kMulriple, 30 * kHMulriple);
+            self.managerView.priceLittleLabel.frame = CGRectMake(55 * kMulriple, 12.5 * kHMulriple, 40 * kMulriple, 20 * kHMulriple);
             
         }
         
         if ([model.countTodayOrders integerValue] > 0) {
             
-            self.acountLabel.text = [NSString stringWithFormat:@"%@", model.countTodayOrders];
+            self.managerView.acountLabel.text = [NSString stringWithFormat:@"%@", model.countTodayOrders];
 
         } else {
             
-            self.acountLabel.text = @"0";
+            self.managerView.acountLabel.text = @"0";
         }
     
     
@@ -290,17 +293,18 @@
     
 }
 
+
 #pragma mark -第一行按钮点击事件
 - (void)firstLineBtnAction:(UIButton *)sender {
     switch (sender.tag) {
-        case 100:{
+        case 1000:{
             
             CaiWuDuiZhangController *caiWuVC = [[CaiWuDuiZhangController alloc] init];
             [self.navigationController pushViewController:caiWuVC animated:YES];
             
         }
             break;
-        case 101: {
+        case 1001: {
             DrawMoneyController *drawVC = [[DrawMoneyController alloc] init];
 //            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
 //            backItem.title = @"收入提现";
@@ -308,7 +312,7 @@
             [self.navigationController pushViewController:drawVC animated:YES];
         }
             break;
-        case 102:{
+        case 1002:{
             ShopInformationController *shopVC = [[ShopInformationController alloc] init];
             [self.navigationController pushViewController:shopVC animated:YES];
         }
@@ -321,25 +325,20 @@
 #pragma mark -第二行按钮点击事件
 - (void)secondLineBtnAction:(UIButton *)sender {
     switch (sender.tag) {
-        case 200:{
+        case 2000:{
             ManagerProductController *managerVC = [[ManagerProductController alloc] init];
             [self.navigationController pushViewController:managerVC animated:YES];
         }
             break;
-        case 201: {
+        case 2001: {
             UserCommentController *commentVC = [[UserCommentController alloc] init];
             [self.navigationController pushViewController:commentVC animated:YES];
         }
             break;
             
-        case 202: {
+        case 2002: {
             
-             NSString *phoneStr = @"010-53655235";
-            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",phoneStr];
-            UIWebView * callWebview = [[UIWebView alloc] init];
-            [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-            [self.view addSubview:callWebview];
-        
+                     
         }
             break;
         default:
@@ -348,35 +347,20 @@
 }
 
 #pragma mark -第三行按钮点击事件
-- (void)thirdLineBtnAction:(UIButton *)sender {
+- (void)loginoutBtnAction:(UIButton *)sender {
     
-    switch (sender.tag) {
-        case 300:{
-            
-            ApplyActivityController *activityVC = [[ApplyActivityController alloc] init];
-            [self.navigationController pushViewController:activityVC animated:YES];
-        }
-            break;
-            
-        case 301:{
-            
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"是否退出登录" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"是否退出登录" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self loginoutHandle];
             }];
-            UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [self loginoutHandle];
-            }];
-            [alertController addAction:action1];
-            [alertController addAction:action2];
-            [self presentViewController:alertController animated:YES completion:nil];
+    [alertController addAction:action1];
+    [alertController addAction:action2];
+    [self presentViewController:alertController animated:YES completion:nil];
 
-        }
-            break;
-            
-        default:
-            break;
-    }
     
 }
 
@@ -409,178 +393,30 @@
 }
 
 - (void)setupViews {
-    //设置背景色
-    self.view.backgroundColor = RGB(237, 237, 237);
     
-    //背景视图
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 20 * kHMulriple, kWight, 200 * kHMulriple)];
-    UIImageView *backImageView = [[UIImageView alloc] initWithFrame:headView.bounds];
-    backImageView.image = [UIImage imageNamed:@"shopBackGround"];
-    [headView addSubview:backImageView];
+    self.managerView = [[ShopManagerView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.managerView];
     
-    //头像
-    self.photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(152 * kMulriple, 30 * kHMulriple, 70 * kMulriple, 70 * kHMulriple)];
-    [self.photoImageView setImage:[UIImage imageNamed:@"headImage"]];
-    _photoImageView.layer.cornerRadius = 35 * kMulriple;
-    _photoImageView.layer.masksToBounds = YES;
+    [_managerView.setUpBtn addTarget:self action:@selector(setUpBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    [headView addSubview:self.photoImageView];
+    [_managerView.messageBtn addTarget:self action:@selector(messageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    //昵称
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(147 * kMulriple, 115 * kHMulriple, 240 * kMulriple, 20 * kHMulriple)];
-    _nameLabel.centerX = kWight / 2;
-    _nameLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
-    _nameLabel.textAlignment = NSTextAlignmentCenter;
-    _nameLabel.textColor = [UIColor whiteColor];
-    [headView addSubview:self.nameLabel];
+    [_managerView.codeBtn addTarget:self action:@selector(codeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    //个人设置按钮
-    UIButton *setUpBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    setUpBtn.frame = CGRectMake(kWight - 50 * kMulriple, 15 * kHMulriple, 30 * kMulriple, 30 * kHMulriple);
-    [setUpBtn setBackgroundImage:[UIImage imageNamed:@"setup"] forState:UIControlStateNormal];
-    
-    [setUpBtn addTarget:self action:@selector(setUpBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [headView addSubview:setUpBtn];
-    
-    //消息按钮
-    UIButton *messageBtn = [[UIButton alloc] initWithFrame:CGRectMake(115 * kMulriple, 135 * kHMulriple, 60 * kMulriple, 60 * kHMulriple)];
-    [messageBtn addTarget:self action:@selector(messageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [messageBtn setImage:[UIImage imageNamed:@"news"] forState:UIControlStateNormal];
-    [headView addSubview:messageBtn];
-    
-    //二维码按钮
-    UIButton *codeBtn = [[UIButton alloc] initWithFrame:CGRectMake(220 * kMulriple, 135 * kHMulriple, 60 * kMulriple, 60 * kHMulriple)];
-    [codeBtn setImage:[UIImage imageNamed:@"dimen"] forState:UIControlStateNormal];
-    [codeBtn addTarget:self action:@selector(codeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [headView addSubview:codeBtn];
-    headView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:headView];
-    
-    //中间视图
-    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 220 * kHMulriple, kWight, 100 * kHMulriple)];
-    secondView.backgroundColor = [UIColor whiteColor];
-    //今日收入按钮
-    UIButton *inComeBtn = [[UIButton alloc] initWithFrame:CGRectMake(50 * kMulriple, 15 * kHMulriple, 100 * kMulriple, 80 * kHMulriple)];
-    
-    //今日收入
-    self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5 * kHMulriple, 65 * kMulriple, 30 * kHMulriple)];
-    
-    _priceLabel.textColor = [UIColor redColor];
+    [_managerView.listBtn addTarget:self action:@selector(listBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    _priceLabel.font = [UIFont systemFontOfSize:25 * kMulriple];
-    
-    self.priceLittleLabel = [[UILabel alloc] initWithFrame:CGRectMake(60 * kMulriple, 13 * kHMulriple, 40 * kMulriple, 20 * kMulriple)];
-    self.priceLittleLabel.textColor = [UIColor redColor];
-    _priceLittleLabel.font = [UIFont systemFontOfSize:19 * kMulriple];
-    [inComeBtn addSubview:self.priceLittleLabel];
-    [inComeBtn addSubview:self.priceLabel];
-    
-    UILabel *todayLabel = [[UILabel alloc] initWithFrame:CGRectMake(5 * kMulriple, 40 * kHMulriple, 90 * kMulriple, 25 * kHMulriple)];
-    todayLabel.centerX = inComeBtn.width / 2;
-    todayLabel.text = @"今日收入";
-    todayLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
-    todayLabel.textColor = RGB(111, 111, 111);
-    todayLabel.textAlignment = NSTextAlignmentCenter;
-    [inComeBtn addSubview:todayLabel];
-    [secondView addSubview:inComeBtn];
-    
-    //今日订单按钮
-    UIButton *listBtn = [[UIButton alloc] initWithFrame:CGRectMake(225 * kMulriple, 15 * kHMulriple, 100 * kMulriple, 100 * kHMulriple)];
-    [listBtn addTarget:self action:@selector(listBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.acountLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5 * kHMulriple, 100 * kMulriple, 30 * kHMulriple)];
-    _acountLabel.centerX = inComeBtn.width / 2;
-    _acountLabel.textColor = [UIColor redColor];
-    
-    _acountLabel.textAlignment = NSTextAlignmentCenter;
-    _acountLabel.font = [UIFont systemFontOfSize:25 * kMulriple];
-    [listBtn addSubview:self.acountLabel];
-    
-    UILabel *listLabel = [[UILabel alloc] initWithFrame:CGRectMake(5 * kMulriple, 40 * kHMulriple, 90 * kMulriple, 25 * kHMulriple)];
-    listLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
-    listLabel.centerX = inComeBtn.width / 2;
-    listLabel.text = @"今日订单";
-    listLabel.textColor = RGB(111, 111, 111);
-    listLabel.textAlignment = NSTextAlignmentCenter;
-    [listBtn addSubview:listLabel];
-    [secondView addSubview:listBtn];
-    
-    [self.view addSubview:secondView];
-    
-
-    //分类视图
-    UIView *categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 321.5 * kHMulriple, kWight, kHeight - 322 * kHMulriple)];
-    categoryView.backgroundColor = RGB(237, 237, 237);
-    NSArray *firstLineImageArr = @[@"verifyMoney",@"cashApply",@"shopInformation"];
-    NSArray *firstLineLabelArr = @[@"财务对账", @"收入提现", @"店铺信息"];
     for (int i = 0; i < 3; i++) {
         
-        //第一行按钮
-        UIButton *firstLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(i * 125.5 * kMulriple, 0, 124 * kMulriple, 103 * kHMulriple)];
-        firstLineBtn.backgroundColor = [UIColor whiteColor];
-        UIImageView *firstLineBtnImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:firstLineImageArr[i]]];
-        [firstLineBtn addSubview:firstLineBtnImage];
-        firstLineBtnImage.centerX = firstLineBtn.width / 2;
-        firstLineBtnImage.centerY = 70  * kHMulriple / 2;
-        UILabel *firstLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, firstLineBtnImage.frame.size.height + 10 * kHMulriple, firstLineBtn.frame.size.width, 12 * kHMulriple)];
-        firstLineLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
-        firstLineLabel.textAlignment = NSTextAlignmentCenter;
-        firstLineLabel.textColor = RGB(111, 111, 111);
-        firstLineLabel.text = firstLineLabelArr[i];
-        firstLineLabel.centerY = 145 * kHMulriple / 2;
-        [firstLineBtn addSubview:firstLineLabel];
+        UIButton *firstLineBtn = (UIButton *)[_managerView viewWithTag:1000 + i];
         [firstLineBtn addTarget:self action:@selector(firstLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        firstLineBtn.tag = 100 + i;
-        [categoryView addSubview:firstLineBtn];
-    }
-    
-    NSArray *secondLineImageArr = @[@"goodsManager",@"comment", @"business"];
-    NSArray *secondLineLabelArr = @[@"管理产品", @"查看评价", @"联系业务经理"];
-    for (int j = 0; j < 3; j++) {
         
-        //第二行按钮
-        UIButton *secondLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(125.5 * j * kMulriple, 104 * kHMulriple, 124 * kMulriple, 103 * kHMulriple)];
-        secondLineBtn.backgroundColor = [UIColor whiteColor];
-        UIImageView *secondLineBtnImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:secondLineImageArr[j]]];
-        [secondLineBtn addSubview:secondLineBtnImage];
-        secondLineBtnImage.centerX = secondLineBtn.width / 2;
-        secondLineBtnImage.centerY = 70 * kHMulriple / 2;
-        UILabel *secondLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, secondLineBtnImage.frame.size.height + 10 * kHMulriple, secondLineBtn.frame.size.width, 12 * kHMulriple)];
-        secondLineLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
-        secondLineLabel.textAlignment = NSTextAlignmentCenter;
-        secondLineLabel.textColor = RGB(111, 111, 111);
-        secondLineLabel.text = secondLineLabelArr[j];
-        secondLineLabel.centerY = 145 * kHMulriple / 2;
-        [secondLineBtn addSubview:secondLineLabel];
+        UIButton *secondLineBtn = (UIButton *)[_managerView viewWithTag:2000 + i];
         [secondLineBtn addTarget:self action:@selector(secondLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        secondLineBtn.tag = 200 + j;
-        [categoryView addSubview:secondLineBtn];
     }
-    //第三行按钮
-    NSArray *thirdLineImageArr = @[@"activityApply",@"loginout"];
-    NSArray *thirdLineLabelArr = @[@"活动申请", @"退出登录"];
-    for (int k = 0; k < 2; k++) {
-        
-        UIButton *thirdLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(125.5 * k * kMulriple, 208 * kHMulriple, 124 * kMulriple, 103 * kHMulriple)];
-        thirdLineBtn.backgroundColor = [UIColor whiteColor];
-        UIImageView *thirdLineBtnImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:thirdLineImageArr[k]]];
-        [thirdLineBtn addSubview:thirdLineBtnImage];
-        thirdLineBtn.tag = 300 + k;
-        thirdLineBtnImage.centerX = thirdLineBtn.width / 2;
-        thirdLineBtnImage.centerY = 70 * kHMulriple/ 2;
-        UILabel *thirdLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, thirdLineBtnImage.frame.size.height + 10 * kHMulriple, thirdLineBtn.frame.size.width, 12 * kHMulriple)];
-        thirdLineLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
-        thirdLineLabel.textAlignment = NSTextAlignmentCenter;
-        thirdLineLabel.text = thirdLineLabelArr[k];
-        thirdLineLabel.textColor = RGB(111, 111, 111);
-        thirdLineLabel.centerY = 145 * kHMulriple / 2;
-        [thirdLineBtn addSubview:thirdLineLabel];
-        [thirdLineBtn addTarget:self action:@selector(thirdLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        [categoryView addSubview:thirdLineBtn];
-    }
-
     
-    [self.view addSubview:categoryView];
+
+    [_managerView.loginoutBtn addTarget:self action:@selector(loginoutBtnAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 //动态计算文本的高度
