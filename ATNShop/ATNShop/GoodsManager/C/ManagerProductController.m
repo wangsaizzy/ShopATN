@@ -35,39 +35,13 @@ static NSInteger num = 1;
     BOOL _isOutOfStock;//缺货下架
 }
 
-- (UIImageView *)backImage {
-    
-    if (!_backImage) {
-        
-        self.backImage = [[UIImageView alloc] initWithFrame:CGRectMake(98 * kMulriple, 184 * kHMulriple, 180 * kMulriple, 180 * kHMulriple)];
-        _backImage.image = [UIImage imageNamed:@"nosource"];
-        _backImage.alpha = 0.5;
-        [self.view addSubview:self.backImage];
-    }
-    return _backImage;
-}
-
-- (UILabel *)textLabel {
-    
-    if (!_textLabel) {
-        
-        self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(210 * kMulriple, 280 * kHMulriple, 90 * kMulriple, 25 * kHMulriple)];
-        _textLabel.text = @"暂无数据";
-        _textLabel.textColor = RGB(111, 111, 111);
-        _textLabel.font = KFont;
-        
-        [self.view addSubview:self.textLabel];
-    }
-    return _textLabel;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.navigationController.navigationBarHidden = YES;
-    self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
     
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20], NSForegroundColorAttributeName:RGB(94, 94, 94)};
+    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
     num = 1;
     
@@ -79,7 +53,6 @@ static NSInteger num = 1;
     [super viewDidLoad];
     
     [self customNaviBar];
-    
     
     //自定义试图用
     [self setupViews];
@@ -110,6 +83,14 @@ static NSInteger num = 1;
     self.tableView.pagingEnabled = NO;
     [self.view addSubview:self.tableView];
 }
+
+- (void)customNaviBar {
+    
+    UIBarButtonItem *addBtn = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:@selector(addBtnAction:)];
+    self.navigationItem.rightBarButtonItem = addBtn;
+}
+
+
 
 - (void)requestModelData {
     
@@ -380,50 +361,34 @@ static NSInteger num = 1;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"StockGoodsSuccess" object:nil];
 }
 
-- (void)customNaviBar {
-    //自定义导航栏
-    UIView *naviView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 64 * kHMulriple)];
-    naviView.backgroundColor = RGB(83, 83, 83);
-    
-    //返回按钮
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBtn.frame = CGRectMake(0, 25 * kHMulriple, 80 * kMulriple, 30 * kHMulriple);
-    
-    [backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIImageView *arrowImage = [[UIImageView alloc] initWithFrame:CGRectMake(15 * kMulriple, 2.5 * kHMulriple, 15 * kMulriple, 25 * kHMulriple)];
-    arrowImage.image = [UIImage imageNamed:@"arrowImage"];
-    [backBtn addSubview:arrowImage];
 
-    [naviView addSubview:backBtn];
+
+- (UIImageView *)backImage {
     
-    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(137 * kMulriple, 20 * kHMulriple, 100 * kMulriple, 40 * kHMulriple)];
-    textLabel.text = @"商品管理";
-    textLabel.textColor = [UIColor whiteColor];
-    textLabel.font = [UIFont systemFontOfSize:20 * kMulriple];
-    textLabel.centerX = naviView.width / 2;
-    
-    [naviView addSubview:textLabel];
-    
-    //搜索按钮
-    UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    addBtn.frame = CGRectMake(330 * kMulriple, 25 * kHMulriple, 40 * kMulriple, 30 * kMulriple);
-    [addBtn setTitle:@"添加" forState:UIControlStateNormal];
-    [addBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    addBtn.titleLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
-    [addBtn addTarget:self action:@selector(addBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [naviView addSubview:addBtn];
-    
-    [self.view addSubview:naviView];
-    
-    
+    if (!_backImage) {
+        
+        self.backImage = [[UIImageView alloc] initWithFrame:CGRectMake(98 * kMulriple, 184 * kHMulriple, 180 * kMulriple, 180 * kHMulriple)];
+        _backImage.image = [UIImage imageNamed:@"nosource"];
+        _backImage.alpha = 0.5;
+        [self.view addSubview:self.backImage];
+    }
+    return _backImage;
 }
 
-
-- (void)backBtnAction:(UIButton *)sender {
+- (UILabel *)textLabel {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (!_textLabel) {
+        
+        self.textLabel = [[UILabel alloc] initWithFrame:CGRectMake(210 * kMulriple, 280 * kHMulriple, 90 * kMulriple, 25 * kHMulriple)];
+        _textLabel.text = @"暂无数据";
+        _textLabel.textColor = RGB(111, 111, 111);
+        _textLabel.font = KFont;
+        
+        [self.view addSubview:self.textLabel];
+    }
+    return _textLabel;
 }
+
 
 
 @end

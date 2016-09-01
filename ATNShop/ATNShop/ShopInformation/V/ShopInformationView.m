@@ -33,71 +33,17 @@
     
     /*
      第一个自定义View
-     
-     
+    
      */
     
+    UIView *firstView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 210 * kHMulriple)];
+    firstView.backgroundColor = RGB(238, 238, 238);
+
     
-    UIView *firstView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 340 * kHMulriple)];
-    firstView.backgroundColor = [UIColor whiteColor];
-    
-    
-    [self.shopBannerBtn addSubview:self.shopBannerImageView];
-    [firstView addSubview:self.shopBannerBtn];
-    
-    //店铺状态
-    UIView *shopStateView = [[UIView alloc] initWithFrame:CGRectMake(0, 70 * kHMulriple, kWight, 60 * kHMulriple)];
-    //Label
-    UILabel *shopStateTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 85 * kMulriple, 30 * kHMulriple)];
-    shopStateTextLabel.text = @"店铺状态";
-    shopStateTextLabel.font = KFont;
-    shopStateTextLabel.textColor = RGB(111, 111, 111);
-    [shopStateView addSubview:shopStateTextLabel];
-    [shopStateView addSubview:self.stateSwitch];
-    [shopStateView addSubview:self.shopStateLabel];
-    
-    [firstView addSubview:shopStateView];
-    
-    //头像
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 130 * kHMulriple, kWight, 90 * kHMulriple)];
-    //Label
-    UILabel *headTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 30 * kHMulriple, 85 * kMulriple, 30 * kHMulriple)];
-    
-    headTextLabel.text = @"头像";
-    headTextLabel.font = KFont;
-    headTextLabel.textColor = RGB(111, 111, 111);
-    [headView addSubview:headTextLabel];
+    [self.publicizeImageBtn addSubview:self.publicizeImageView];
+    [firstView addSubview:self.publicizeImageBtn];
     [self.headImageViewBtn addSubview:self.shopHeadImageView];
-    [headView addSubview:self.headImageViewBtn];
-    [firstView addSubview:headView];
-    
-    UILabel *lineFirstLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 129 * kHMulriple, kWight, 1 * kHMulriple)];
-    lineFirstLabel.backgroundColor = RGB(237, 237, 237);
-    [firstView addSubview:lineFirstLabel];
-    
-    
-    //列表展示图
-    UIView *showListView = [[UIView alloc] initWithFrame:CGRectMake(0, 220 * kHMulriple, kWight, 120 * kHMulriple)];
-    
-    //Label
-    UILabel *showListTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 95 * kMulriple, 25 * kHMulriple)];
-    showListTextLabel.text = @"列表展示图";
-    showListTextLabel.font = KFont;
-    showListTextLabel.textColor = RGB(111, 111, 111);
-    [showListView addSubview:showListTextLabel];
-    [self.showListBtn addSubview:self.shopListImageView];
-    [showListView addSubview:self.showListBtn];
-    [firstView addSubview:showListView];
-    
-    
-    
-    
-    
-    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 219 * kHMulriple, kWight, 1 * kHMulriple)];
-    lineLabel.backgroundColor = RGB(237, 237, 237);
-    [firstView addSubview:lineLabel];
-    
-    
+    [firstView addSubview:self.headImageViewBtn];
     [self.scrollView addSubview:firstView];
     /*
      第二个自定义View
@@ -105,55 +51,22 @@
      
      */
     
-    self.secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 345 * kHMulriple, kWight,  115* kHMulriple)];
-    _secondView.backgroundColor = [UIColor whiteColor];
+    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 210 * kHMulriple, kWight,  170 * kHMulriple)];
+    secondView.backgroundColor = [UIColor whiteColor];
     
-    
-    
-    //Label
-    UILabel *showEnvironmentTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 95 * kMulriple, 30 * kHMulriple)];
-    showEnvironmentTextLabel.text = @"环境展示图";
-    showEnvironmentTextLabel.font = KFont;
-    showEnvironmentTextLabel.textColor = RGB(111, 111, 111);
-    [_secondView addSubview:showEnvironmentTextLabel];
-    
-    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 45 * kHMulriple, 85 * kMulriple, 20 * kHMulriple)];
-    numberLabel.text = @"(最多二十张)";
-    numberLabel.font = [UIFont systemFontOfSize:12 * kMulriple];
-    numberLabel.textColor = RGB(111, 111, 111);
-    [_secondView addSubview:numberLabel];
-    [_secondView addSubview:self.showEnvironmentBtn];
-    [self.scrollView addSubview:self.secondView];
-    
-    /*
-     第三个自定义View
-     
-     
-     */
-    
-    
-    self.thirdView = [[UIView alloc] initWithFrame:CGRectMake(0, 475 * kHMulriple, kWight,  145* kHMulriple)];
-    _thirdView.backgroundColor = [UIColor whiteColor];
-    
-    
-    //店铺名称
-    UIView *shopNameView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 60 * kHMulriple)];
-    //Label
-    UILabel *shopNameTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 85 * kMulriple, 30 * kHMulriple)];
-    
-    shopNameTextLabel.text = @"店铺名称";
-    shopNameTextLabel.font = KFont;
-    shopNameTextLabel.textColor = RGB(111, 111, 111);
-    [shopNameView addSubview:shopNameTextLabel];
-    [shopNameView addSubview:self.shopNameTF];
-    [_thirdView addSubview:shopNameView];
-    
-
+    UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 60 * kHMulriple)];
+    UILabel *nameTextLable = [[UILabel alloc] initWithFrame:CGRectMake(15 * kMulriple, 17.5 * kHMulriple, 80 * kMulriple, 25 * kHMulriple)];
+    nameTextLable.text = @"店铺名称";
+    nameTextLable.font = K17Font;
+    nameTextLable.textColor = RGB(111, 111, 111);
+    [nameView addSubview:nameTextLable];
+    [nameView addSubview:self.shopNameTF];
+    [secondView addSubview:nameView];
     
     //店铺地址
-    UIView *detailAddressView = [[UIView alloc] initWithFrame:CGRectMake(0, 60 * kHMulriple, kWight, 85 * kHMulriple)];
+    UIView *detailAddressView = [[UIView alloc] initWithFrame:CGRectMake(0, 60 * kHMulriple, kWight, 110 * kHMulriple)];
     //Label
-    UILabel *detailAddressTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 25 * kHMulriple, 105 * kMulriple, 35 * kHMulriple)];
+    UILabel *detailAddressTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kMulriple, 25 * kHMulriple, 80 * kMulriple, 35 * kHMulriple)];
     detailAddressTextLabel.text = @"店铺地址";
     detailAddressTextLabel.font = KFont;
     detailAddressTextLabel.textColor = RGB(111, 111, 111);
@@ -166,94 +79,115 @@
     [detailAddressView addSubview:detailAddressTextLabel];
     [detailAddressView addSubview:self.mapBtn];
     [detailAddressView addSubview:self.detailAddressTV];
-    [_thirdView addSubview:detailAddressView];
-    
-    
-   
+    [secondView addSubview:detailAddressView];
+
     //分割线
-    UILabel *thirdLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 59 * kHMulriple, kWight, 1 * kHMulriple)];
-    thirdLineLabel.backgroundColor = RGB(237, 237, 237);
-    [_thirdView addSubview:thirdLineLabel];
+    UILabel *secondLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 59 * kHMulriple, kWight, 1 * kHMulriple)];
+    secondLineLabel.backgroundColor = RGB(237, 237, 237);
+    [secondView addSubview:secondLineLabel];
+
+    
+    [self.scrollView addSubview:secondView];
     
     
-    [self.scrollView addSubview:self.thirdView];
     
     /*
-     第四个自定义View
+     第三个自定义View
      
      
      */
     
     
-    self.fouthView = [[UIView alloc] initWithFrame:CGRectMake(0, 635 * kHMulriple, kWight,  220 * kHMulriple)];
-    _fouthView.backgroundColor = [UIColor whiteColor];
+    UIView *thirdView = [[UIView alloc] initWithFrame:CGRectMake(0, 385 * kHMulriple, kWight,  170 * kHMulriple)];
+    thirdView.backgroundColor = [UIColor whiteColor];
     
     
-    //店铺分类
-    UIView *shopCategoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 60 * kHMulriple)];
+    //店铺描述
+    UIView *shopDescriptionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 110 * kHMulriple)];
     //Label
-    UILabel *shopCategoryTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 85 * kMulriple, 30 * kHMulriple)];
+    UILabel *shopDescriptionTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kMulriple, 17.5 * kHMulriple, 80 * kMulriple, 25 * kHMulriple)];
     
-    shopCategoryTextLabel.text = @"店铺分类";
-    shopCategoryTextLabel.font = KFont;
-    shopCategoryTextLabel.textColor = RGB(111, 111, 111);
-    [shopCategoryView addSubview:shopCategoryTextLabel];
+    shopDescriptionTextLabel.text = @"店铺描述";
+    shopDescriptionTextLabel.font = K17Font;
+    shopDescriptionTextLabel.textColor = RGB(111, 111, 111);
+    [shopDescriptionView addSubview:shopDescriptionTextLabel];
+    [shopDescriptionView addSubview:self.descriptionTV];
+    [thirdView addSubview:shopDescriptionView];
     
-    self.categoryImage = [[UIImageView alloc] initWithFrame:CGRectMake(180 * kMulriple, 10 * kHMulriple, 15 * kMulriple, 20 * kHMulriple)];
-    self.categoryImage.image = [UIImage imageNamed:@"right"];
-    self.categoryImage.centerY = self.chooseCategoryBtn.height / 2;
-    [self.chooseCategoryBtn addSubview:self.categoryImage];
-    [shopCategoryView addSubview:self.chooseCategoryBtn];
-    [self.chooseCategoryBtn addSubview:self.chooseCategoryLabel];
-    [_fouthView addSubview:shopCategoryView];
+
     
-    
-    
+    //客服电话
     //电话
-    UIView *shopPhoneView = [[UIView alloc] initWithFrame:CGRectMake(0, 60 * kHMulriple, kWight, 60 * kHMulriple)];
+    UIView *shopPhoneView = [[UIView alloc] initWithFrame:CGRectMake(0, 110 * kHMulriple, kWight, 60 * kHMulriple)];
     //Label
-    UILabel *showPhoneTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 105 * kMulriple, 30 * kHMulriple)];
+    UILabel *showPhoneTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kMulriple, 17.5 * kHMulriple, 80 * kMulriple, 25 * kHMulriple)];
     
-    showPhoneTextLabel.text = @"电话";
-    showPhoneTextLabel.font = KFont;
+    showPhoneTextLabel.text = @"客服电话";
+    showPhoneTextLabel.font = K17Font;
     showPhoneTextLabel.textColor = RGB(111, 111, 111);
     [shopPhoneView addSubview:showPhoneTextLabel];
     [shopPhoneView addSubview:self.phoneTF];
-    [_fouthView addSubview:shopPhoneView];
+    [thirdView addSubview:shopPhoneView];
+
+    
+   
+    //分割线
+    UILabel *thirdLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 109 * kHMulriple, kWight, 1 * kHMulriple)];
+    thirdLineLabel.backgroundColor = RGB(237, 237, 237);
+    [thirdView addSubview:thirdLineLabel];
     
     
-    //折扣说明
-    UIView *explainDiscountView = [[UIView alloc] initWithFrame:CGRectMake(0, 120 * kHMulriple, kWight, 50 * kHMulriple)];
+    [self.scrollView addSubview:thirdView];
+    
+    /*
+     第四个自定义View
+    
+     */
+    
+    UIView *fouthView = [[UIView alloc] initWithFrame:CGRectMake(0, 560 * kHMulriple, kWight, 170 * kHMulriple)];
+    fouthView.backgroundColor = [UIColor whiteColor];
+    
+    
+    
+    //返现额度
+    UIView *explainDiscountView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWight, 60 * kHMulriple)];
     //Label
-    UILabel *explainDiscountTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 15 * kHMulriple, 105 * kMulriple, 20 * kHMulriple)];
-    explainDiscountTextLabel.text = @"折扣说明";
-    explainDiscountTextLabel.font = KFont;
+    UILabel *explainDiscountTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kMulriple, 17.5 * kHMulriple, 80 * kMulriple, 25 * kHMulriple)];
+    explainDiscountTextLabel.text = @"返现额度";
+    explainDiscountTextLabel.font = K17Font;
     explainDiscountTextLabel.textColor = RGB(111, 111, 111);
     [explainDiscountView addSubview:explainDiscountTextLabel];
-    [explainDiscountView addSubview:self.discountLabel];
-    [_fouthView addSubview:explainDiscountView];
+    
+    UILabel *symbolLabel = [[UILabel alloc] initWithFrame:CGRectMake(60 * kMulriple, 5 * kHMulriple, 15 * kMulriple, 30 * kHMulriple)];
+    symbolLabel.text = @"%";
+    symbolLabel.font = K17Font;
+    [self.discountTF addSubview:symbolLabel];
+    [explainDiscountView addSubview:self.discountTF];
+    [fouthView addSubview:explainDiscountView];
+    
+    //一句话推广商家
+    UIView *popularizeView = [[UIView alloc] initWithFrame:CGRectMake(0, 60 * kHMulriple, kWight, 110 * kHMulriple)];
+    //Label
+    UILabel *popularizeTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kMulriple, 17.5 * kHMulriple, 80 * kMulriple, 50 * kHMulriple)];
+    popularizeTextLabel.text = @"一句话推广商家";
+    popularizeTextLabel.numberOfLines = 0;
+    popularizeTextLabel.font = K17Font;
+    popularizeTextLabel.textColor = RGB(111, 111, 111);
+    [popularizeView addSubview:popularizeTextLabel];
+    [popularizeView addSubview:self.popularizeTV];
+    [fouthView addSubview:popularizeView];
+
     
     
-    for (int i = 0; i < 2; i++) {
-        //分割线
-        UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 59 * kHMulriple + i * 59 * kHMulriple, kWight, 1 * kHMulriple)];
-        lineLabel.backgroundColor = RGB(237, 237, 237);
-        [_fouthView addSubview:lineLabel];
-    }
+    //分割线
+    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 59 * kHMulriple , kWight, 1 * kHMulriple)];
+    lineLabel.backgroundColor = RGB(237, 237, 237);
+    [fouthView addSubview:lineLabel];
     
-    [self.scrollView addSubview:self.fouthView];
     
-    UILabel *lineTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 169 * kHMulriple, kWight, 1 * kHMulriple)];
-    lineTextLabel.backgroundColor = RGB(237, 237, 237);
-    [_fouthView addSubview:lineTextLabel];
+    [self.scrollView addSubview:fouthView];
     
-    //提示内容
-    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(30 * kMulriple, 180 * kHMulriple, 335 * kMulriple, 30 * kHMulriple)];
     
-    textLabel.text = @"更改店名、地址、电话等内容请联系业务经理!";
-    textLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
-    textLabel.textColor = RGB(111, 111, 111);
-    [_fouthView addSubview:textLabel];
     
 }
 
@@ -262,7 +196,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kWight, kHeight)];
-        self.scrollView.contentSize = CGSizeMake(kWight, 920 * kHMulriple);
+        self.scrollView.contentSize = CGSizeMake(kWight, 795 * kHMulriple);
         self.scrollView.backgroundColor = RGB(238, 238, 238);
         self.scrollView.delegate = self;
         self.scrollView.showsVerticalScrollIndicator = NO;//纵向滚动条
@@ -272,53 +206,35 @@
     return _scrollView;
 }
 
-//横幅按钮
-- (UIButton *)shopBannerBtn {
-    if (!_shopBannerBtn) {
-        self.shopBannerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _shopBannerBtn.frame = CGRectMake(0, 0, kWight, 70 * kHMulriple);
-        [_shopBannerBtn setBackgroundImage:[UIImage imageNamed:@"banner"] forState:UIControlStateNormal];
-    }
-    return _shopBannerBtn;
-}
-
-//横幅
-- (UIImageView *)shopBannerImageView {
-    if (!_shopBannerImageView) {
-        self.shopBannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWight, 70 * kHMulriple)];
-       
+- (UIImageView *)publicizeImageView {
+    
+    if (!_publicizeImageView) {
+        
+        self.publicizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWight, 150 * kHMulriple)];
         
     }
-    return _shopBannerImageView;
+    return _publicizeImageView;
 }
 
-//开关
-- (UISwitch *)stateSwitch {
-    if (!_stateSwitch) {
-        self.stateSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(275 * kMulriple, 15 * kHMulriple, 90 * kMulriple, 45 * kHMulriple)];
-        self.stateSwitch.on = YES;
-        // 控件大小，不能设置frame，只能用缩放比例
-        self.stateSwitch.onTintColor = RGB(235, 88, 64);
+- (UIButton *)publicizeImageBtn {
+    
+    if (!_publicizeImageBtn) {
+        
+        self.publicizeImageBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _publicizeImageBtn.frame = CGRectMake(0, 0, kWight, 150 * kHMulriple);
+        [_publicizeImageBtn setBackgroundImage:[UIImage imageNamed:@"banner"] forState:UIControlStateNormal];
+        
+        _publicizeImageBtn.backgroundColor = RGB(180, 180, 180);
     }
-    return _stateSwitch;
-}
-
-//展示店铺状态Label
-- (UILabel *)shopStateLabel {
-    if (!_shopStateLabel) {
-        self.shopStateLabel = [[UILabel alloc] initWithFrame:CGRectMake(135 * kMulriple, 15 * kHMulriple, 80 * kMulriple, 30 * kHMulriple)];
-        _shopStateLabel.font = KFont;
-        self.shopStateLabel.textColor = RGB(77, 77, 77);
-    }
-    return _shopStateLabel;
+    return _publicizeImageBtn;
 }
 
 //头像按钮
 - (UIButton *)headImageViewBtn {
     if (!_headImageViewBtn) {
         self.headImageViewBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _headImageViewBtn.frame = CGRectMake(147 * kMulriple, 10 * kHMulriple, 70 * kMulriple, 70 * kHMulriple);
-       
+        _headImageViewBtn.frame = CGRectMake(10 * kMulriple, 130 * kHMulriple, 70 * kMulriple, 70 * kHMulriple);
+    
         [_headImageViewBtn setBackgroundImage:[UIImage imageNamed:@"headImage"] forState:UIControlStateNormal];
     }
     return _headImageViewBtn;
@@ -328,9 +244,7 @@
 - (UIImageView *)shopHeadImageView {
     if (!_shopHeadImageView) {
         self.shopHeadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70 * kMulriple, 70 * kHMulriple)];
-    
-        self.shopHeadImageView.layer.masksToBounds = YES;
-        self.shopHeadImageView.layer.cornerRadius = 35 * kMulriple;
+        
     }
     return _shopHeadImageView;
 }
@@ -340,36 +254,15 @@
     
     if (!_shopNameTF) {
         
-        self.shopNameTF = [[UITextField alloc] initWithFrame:CGRectMake(135 * kMulriple, 7.5 * kHMulriple, 210 * kMulriple, 45 * kHMulriple)];
+        self.shopNameTF = [[UITextField alloc] initWithFrame:CGRectMake(105 * kMulriple, 10 * kHMulriple, 245 * kMulriple, 40 * kHMulriple)];
         self.shopNameTF.textColor = RGB(111, 111, 111);
-        _shopNameTF.font = [UIFont systemFontOfSize:17 * kMulriple];
+        _shopNameTF.font = K17Font;
         _shopNameTF.backgroundColor = RGB(238, 238, 238);
     }
     return _shopNameTF;
 }
 
 
-//选择店铺种类按钮
-- (UIButton *)chooseCategoryBtn {
-    if (!_chooseCategoryBtn) {
-        self.chooseCategoryBtn = [[UIButton alloc] initWithFrame:CGRectMake(135 * kMulriple, 5 * kHMulriple, 210 * kMulriple, 45 * kHMulriple)];
-        [self.chooseCategoryBtn.layer setBorderWidth:1 * kMulriple];   //边框宽度
-        [self.chooseCategoryBtn.layer setBorderColor:RGB(237, 237, 237).CGColor];//边框颜色
-    }
-    return _chooseCategoryBtn;
-}
-
-//选择店铺种类label
-- (UILabel *)chooseCategoryLabel {
-    if (!_chooseCategoryLabel) {
-        self.chooseCategoryLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 * kMulriple, 5 * kHMulriple, 125 * kMulriple, 25 * kHMulriple)];
-        
-        _chooseCategoryLabel.font = KFont;
-        self.chooseCategoryLabel.centerY = self.chooseCategoryBtn.height / 2;
-        self.chooseCategoryLabel.textColor = RGB(111, 111, 111);
-    }
-    return _chooseCategoryLabel;
-}
 
 
 - (UIButton *)mapBtn {
@@ -383,71 +276,70 @@
 
 
 //店铺详细地址
-- (UITextView *)detailAddressTV {
+- (PlaceholderTextView *)detailAddressTV {
     
     if (!_detailAddressTV) {
         
-        self.detailAddressTV = [[UITextView alloc] initWithFrame:CGRectMake(135 * kMulriple, 7.5 * kHMulriple, 190 * kMulriple, 70 * kHMulriple)];
+        self.detailAddressTV = [[PlaceholderTextView alloc] initWithFrame:CGRectMake(105 * kMulriple, 10 * kHMulriple, 215 * kMulriple, 90 * kHMulriple)];
         self.detailAddressTV.textColor = RGB(111, 111, 111);
-        
+        _detailAddressTV.placeholder = @"请选择店铺区域";
         _detailAddressTV.backgroundColor = RGB(238, 238, 238);
-        _detailAddressTV.font = KFont;
+        _detailAddressTV.font = K17Font;
     }
     return _detailAddressTV;
+}
+
+- (PlaceholderTextView *)descriptionTV {
+    
+    if (!_descriptionTV) {
+        
+        self.descriptionTV = [[PlaceholderTextView alloc] initWithFrame:CGRectMake(105 * kMulriple, 10 * kHMulriple, 245 * kMulriple, 90 * kHMulriple)];
+        self.descriptionTV.textColor = RGB(111, 111, 111);
+        _descriptionTV.placeholder = @"请添加店铺描述";
+        _descriptionTV.backgroundColor = RGB(238, 238, 238);
+        _descriptionTV.font = K17Font;
+    }
+    return _descriptionTV;
 }
 
 //电话输入框
 - (UITextField *)phoneTF {
     if (!_phoneTF) {
-        self.phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(135 * kMulriple, 7.5 * kHMulriple, 210 * kMulriple, 45 * kHMulriple)];
+        self.phoneTF = [[UITextField alloc] initWithFrame:CGRectMake(105 * kMulriple, 10 * kHMulriple, 240 * kMulriple, 40 * kHMulriple)];
         self.phoneTF.textColor = RGB(111, 111, 111);
-        _phoneTF.font = KFont;
+        _phoneTF.font = K17Font;
         self.phoneTF.backgroundColor = RGB(238, 238, 238);
     }
     return _phoneTF;
 }
 
 //折扣输入框
-- (UILabel *)discountLabel {
+- (UITextField *)discountTF {
     
-    if (!_discountLabel) {
+    if (!_discountTF) {
         
-        self.discountLabel = [[UILabel alloc] initWithFrame:CGRectMake(135 * kMulriple, 7.5 * kHMulriple, 210 * kMulriple, 35 * kHMulriple)];
-        self.discountLabel.textColor = RGB(111, 111, 111);
-        _discountLabel.font = KFont;
-       
-        
+        self.discountTF = [[UITextField alloc] initWithFrame:CGRectMake(105 * kMulriple, 10 * kHMulriple, 80 * kMulriple, 40 * kHMulriple)];
+        _discountTF.textColor = RGB(111, 111, 111);
+        _discountTF.backgroundColor = RGB(238, 238, 238);
+        _discountTF.font = K17Font;
     }
-    return _discountLabel;
+    return _discountTF;
 }
 
-//列表展示图
-- (UIImageView *)shopListImageView {
-    if (!_shopListImageView) {
-        self.shopListImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80 * kMulriple, 80 * kHMulriple)];
-        
-    }
-    return _shopListImageView;
-}
-
-//列表展示图按钮
-- (UIButton *)showListBtn {
-    if (!_showListBtn) {
-        self.showListBtn = [[UIButton alloc] initWithFrame:CGRectMake(145 * kMulriple, 20 * kHMulriple, 80 * kMulriple, 80 * kHMulriple)];
-        
-        [_showListBtn setBackgroundImage:[UIImage imageNamed:@"defaultShowImage"] forState:UIControlStateNormal];
-    }
-    return _showListBtn;
-}
-
-- (UIButton *)showEnvironmentBtn {
+- (PlaceholderTextView *)popularizeTV {
     
-    if (!_showEnvironmentBtn) {
-        self.showEnvironmentBtn = [[UIButton alloc] initWithFrame:CGRectMake(145 * kMulriple, 20 * kHMulriple, 80 * kMulriple, 80 * kHMulriple)];
-        [_showEnvironmentBtn setBackgroundImage:[UIImage imageNamed:@"showListImage"] forState:UIControlStateNormal];
+    
+    if (!_popularizeTV) {
         
+        self.popularizeTV = [[PlaceholderTextView alloc] initWithFrame:CGRectMake(105 * kMulriple, 10 * kHMulriple, 245 * kMulriple, 90 * kHMulriple)];
+        _popularizeTV.placeholder = @"使用一句话推广一下";
+        _popularizeTV.backgroundColor = RGB(238, 238, 238);
+        _popularizeTV.textColor = RGB(111, 111, 111);
+        _popularizeTV.font = K17Font;
     }
-    return _showEnvironmentBtn;
+    return _popularizeTV;
 }
+
+
 
 @end

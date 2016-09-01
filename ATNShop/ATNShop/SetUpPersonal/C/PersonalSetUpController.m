@@ -29,25 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self customNaviBar];
-    self.title = @"个人设置";
+
     [self setUpViews];
 }
 
-- (void)customNaviBar {
-    
-    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrowImage"] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    self.navigationItem.leftBarButtonItem = left;
-    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20 * kMulriple], NSForegroundColorAttributeName:[UIColor whiteColor]};
-    self.navigationController.navigationBar.titleTextAttributes = dic;
-    self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
-}
 
-- (void)handleBack:(UIBarButtonItem *)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 - (void)setUpViews {
@@ -158,12 +144,18 @@
 - (void)alertSecretBtnAction:(UIButton *)sender {
     
     AlertSecretController *codeVC = [[AlertSecretController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"修改密码";
+    self.navigationItem.backBarButtonItem = backItem;
     [self.navigationController pushViewController:codeVC animated:YES];
 }
 
 #pragma mark -意见反馈按钮点击事件
 - (void)backAdviseBtnAction:(UIButton *)sender {
     BackAdviseController *backVC = [[BackAdviseController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"意见反馈";
+    self.navigationItem.backBarButtonItem = backItem;
     [self.navigationController pushViewController:backVC animated:YES];
 }
 
@@ -172,6 +164,9 @@
 - (void)aboutUsBtnAction:(UIButton *)sender {
     
     AboutUsController *usVC = [[AboutUsController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"关于我们";
+    self.navigationItem.backBarButtonItem = backItem;
     [self.navigationController pushViewController:usVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {

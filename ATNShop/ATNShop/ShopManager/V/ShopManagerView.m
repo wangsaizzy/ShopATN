@@ -23,19 +23,20 @@
 - (void)setupViews {
     
     //背景视图
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 20 * kHMulriple, kWight, 200 * kHMulriple)];
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 20 * kHMulriple, kWight, 170 * kHMulriple)];
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:headView.bounds];
-    backImageView.image = [UIImage imageNamed:@"shopBackGround"];
-    [backImageView addSubview:self.photoImageView];
-    [backImageView addSubview:self.nameLabel];
-    [backImageView addSubview:self.setUpBtn];
-    [backImageView addSubview:self.messageBtn];
-    [backImageView addSubview:self.codeBtn];
     [headView addSubview:backImageView];
+    backImageView.image = [UIImage imageNamed:@"shopBackGround"];
+    [headView addSubview:self.photoImageView];
+    [headView addSubview:self.nameLabel];
+    [headView addSubview:self.setUpBtn];
+    [headView addSubview:self.messageBtn];
+    
+    
     [self addSubview:headView];
     
     //中间视图
-    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 220 * kHMulriple, kWight, 100 * kHMulriple)];
+    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 190 * kHMulriple, kWight, 100 * kHMulriple)];
     secondView.backgroundColor = [UIColor whiteColor];
     
     [self.inComeBtn addSubview:self.priceLabel];
@@ -65,7 +66,7 @@
     [self addSubview:secondView];
     
     //分类视图
-    UIView *categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 321.5 * kHMulriple, kWight, kHeight - 322 * kHMulriple)];
+    UIView *categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 291.5 * kHMulriple, kWight, kHeight - 322 * kHMulriple)];
     categoryView.backgroundColor = RGB(237, 237, 237);
     
     NSArray *firstLineImageArr = @[@"verifyMoney",@"cashApply",@"shopInformation"];
@@ -73,18 +74,18 @@
     for (int i = 0; i < 3; i++) {
         
         //第一行按钮
-        UIButton *firstLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(i * 125.5 * kMulriple, 0, 124 * kMulriple, 103 * kHMulriple)];
+        UIButton *firstLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(i * 125.5 * kMulriple, 0, 124 * kMulriple, 114 * kHMulriple)];
         firstLineBtn.backgroundColor = [UIColor whiteColor];
         UIImageView *firstLineBtnImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:firstLineImageArr[i]]];
         [firstLineBtn addSubview:firstLineBtnImage];
         firstLineBtnImage.centerX = firstLineBtn.width / 2;
-        firstLineBtnImage.centerY = 70  * kHMulriple / 2;
-        UILabel *firstLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, firstLineBtnImage.frame.size.height + 10 * kHMulriple, firstLineBtn.frame.size.width, 12 * kHMulriple)];
+        firstLineBtnImage.centerY = 80  * kHMulriple / 2;
+        UILabel *firstLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, firstLineBtnImage.frame.size.height + 20 * kHMulriple, firstLineBtn.frame.size.width, 12 * kHMulriple)];
         firstLineLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
         firstLineLabel.textAlignment = NSTextAlignmentCenter;
         firstLineLabel.textColor = RGB(111, 111, 111);
         firstLineLabel.text = firstLineLabelArr[i];
-        firstLineLabel.centerY = 145 * kHMulriple / 2;
+        firstLineLabel.centerY = 155 * kHMulriple / 2;
         [firstLineBtn addSubview:firstLineLabel];
         
         firstLineBtn.tag = 1000 + i;
@@ -92,22 +93,22 @@
     }
     
     NSArray *secondLineImageArr = @[@"goodsManager",@"comment", @"business"];
-    NSArray *secondLineLabelArr = @[@"管理产品", @"查看评价", @"联系业务经理"];
+    NSArray *secondLineLabelArr = @[@"产品管理", @"查看评价", @"分类管理"];
     for (int j = 0; j < 3; j++) {
         
         //第二行按钮
-        UIButton *secondLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(125.5 * j * kMulriple, 104.5 * kHMulriple, 124 * kMulriple, 103 * kHMulriple)];
+        UIButton *secondLineBtn = [[UIButton alloc] initWithFrame:CGRectMake(125.5 * j * kMulriple, 115.5 * kHMulriple, 124 * kMulriple, 114 * kHMulriple)];
         secondLineBtn.backgroundColor = [UIColor whiteColor];
         UIImageView *secondLineBtnImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:secondLineImageArr[j]]];
         [secondLineBtn addSubview:secondLineBtnImage];
         secondLineBtnImage.centerX = secondLineBtn.width / 2;
-        secondLineBtnImage.centerY = 70 * kHMulriple / 2;
+        secondLineBtnImage.centerY = 80 * kHMulriple / 2;
         UILabel *secondLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, secondLineBtnImage.frame.size.height + 10 * kHMulriple, secondLineBtn.frame.size.width, 12 * kHMulriple)];
         secondLineLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
         secondLineLabel.textAlignment = NSTextAlignmentCenter;
         secondLineLabel.textColor = RGB(111, 111, 111);
         secondLineLabel.text = secondLineLabelArr[j];
-        secondLineLabel.centerY = 145 * kHMulriple / 2;
+        secondLineLabel.centerY = 155 * kHMulriple / 2;
         [secondLineBtn addSubview:secondLineLabel];
         
         secondLineBtn.tag = 2000 + j;
@@ -120,13 +121,13 @@
     
     
     thirdLineBtnImage.centerX = self.loginoutBtn.width / 2;
-    thirdLineBtnImage.centerY = 70 * kHMulriple/ 2;
+    thirdLineBtnImage.centerY = 80 * kHMulriple/ 2;
     UILabel *thirdLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, thirdLineBtnImage.frame.size.height + 10 * kHMulriple, self.loginoutBtn.frame.size.width, 12 * kHMulriple)];
     thirdLineLabel.font = [UIFont systemFontOfSize:14 * kMulriple];
     thirdLineLabel.textAlignment = NSTextAlignmentCenter;
     thirdLineLabel.text = @"退出登录";
     thirdLineLabel.textColor = RGB(111, 111, 111);
-    thirdLineLabel.centerY = 145 * kHMulriple / 2;
+    thirdLineLabel.centerY = 155 * kHMulriple / 2;
     [self.loginoutBtn addSubview:thirdLineLabel];
     
     [categoryView addSubview:self.loginoutBtn];
@@ -141,7 +142,7 @@
     if (!_photoImageView) {
         
         self.photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(152 * kMulriple, 30 * kHMulriple, 70 * kMulriple, 70 * kHMulriple)];
-        [self.photoImageView setImage:[UIImage imageNamed:@"headImage"]];
+        [self.photoImageView setImage:[UIImage imageNamed:@"defaultImage"]];
         _photoImageView.layer.cornerRadius = 35 * kMulriple;
         _photoImageView.layer.masksToBounds = YES;
         
@@ -178,21 +179,12 @@
     
     if (!_messageBtn) {
         
-        self.messageBtn = [[UIButton alloc] initWithFrame:CGRectMake(115 * kMulriple, 135 * kHMulriple, 60 * kMulriple, 60 * kHMulriple)];
+        self.messageBtn = [[UIButton alloc] initWithFrame:CGRectMake(0 * kMulriple, 0 * kHMulriple, 60 * kMulriple, 60 * kHMulriple)];
         [_messageBtn setImage:[UIImage imageNamed:@"news"] forState:UIControlStateNormal];
     }
     return _messageBtn;
 }
 
-- (UIButton *)codeBtn {
-    
-    if (!_codeBtn) {
-        
-        self.codeBtn = [[UIButton alloc] initWithFrame:CGRectMake(220 * kMulriple, 135 * kHMulriple, 60 * kMulriple, 60 * kHMulriple)];
-        [_codeBtn setImage:[UIImage imageNamed:@"dimen"] forState:UIControlStateNormal];
-    }
-    return _codeBtn;
-}
 
 - (UIButton *)inComeBtn {
     
@@ -251,7 +243,7 @@
     
     if (!_loginoutBtn) {
         
-        self.loginoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 209 * kHMulriple, 124 * kMulriple, 103 * kHMulriple)];
+        self.loginoutBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 231 * kHMulriple, 124 * kMulriple, 114 * kHMulriple)];
         self.loginoutBtn.backgroundColor = [UIColor whiteColor];
     }
     return _loginoutBtn;

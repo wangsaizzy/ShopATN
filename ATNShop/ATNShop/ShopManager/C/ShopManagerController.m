@@ -19,39 +19,21 @@
 #import "AppDelegate.h"
 #import "ShopInformationModel.h"
 #import "NewsViewController.h"
-#import "DimensionalView.h"
+
 #import <CommonCrypto/CommonCryptor.h>
 #import "ServerForCodeText.h"
-#import "ApplyActivityController.h"
 #import "ManagerModel.h"
 #import "ShopManagerView.h"
 @interface ShopManagerController ()
 @property (nonatomic, strong) ShopManagerView *managerView;
-
-@property (nonatomic, strong) UIImageView *photoImageView;
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *priceLabel;
-@property (nonatomic, strong) UILabel *priceLittleLabel;
-@property (nonatomic, strong) UILabel *acountLabel;
 @property (nonatomic, copy) NSString *shopName;
-@property (nonatomic, strong) DimensionalView *dimenView;
+
 @end
 
 @implementation ShopManagerController
 
 
 
-- (DimensionalView *)dimenView {
-    
-    if (!_dimenView) {
-        
-        self.dimenView = [[DimensionalView alloc] initWithFrame:CGRectMake(60 * kMulriple, 185 * kHMulriple, 255 * kMulriple, 300 * kHMulriple)];
-        self.dimenView.layer.cornerRadius = 20 * kMulriple;
-        self.dimenView.layer.masksToBounds = YES;
-        [self.dimenView.deleteBtn addTarget:self action:@selector(deleteBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _dimenView;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -99,6 +81,34 @@
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getOrderAndIncomeData) name:@"RefreshAnalysisData" object:nil];
 }
 
+#pragma mark -- 自定义视图
+- (void)setupViews {
+    
+    self.managerView = [[ShopManagerView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.managerView];
+    
+    
+    [_managerView.setUpBtn addTarget:self action:@selector(setUpBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_managerView.messageBtn addTarget:self action:@selector(messageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+
+    [_managerView.listBtn addTarget:self action:@selector(listBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    for (int i = 0; i < 3; i++) {
+        
+        UIButton *firstLineBtn = (UIButton *)[_managerView viewWithTag:1000 + i];
+        [firstLineBtn addTarget:self action:@selector(firstLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIButton *secondLineBtn = (UIButton *)[_managerView viewWithTag:2000 + i];
+        [secondLineBtn addTarget:self action:@selector(secondLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    
+    [_managerView.loginoutBtn addTarget:self action:@selector(loginoutBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+
 
 - (void)getUserInfoData {
     
@@ -120,15 +130,14 @@
 
 - (void)parseUserInfoDic:(NSDictionary *)dic {
     
-    
-    
+
     ManagerModel *model = [[ManagerModel alloc] initWithDic:dic];
     
     [UserModel defaultModel].portraitUrl = model.portraitUrl;
     [UserModel defaultModel].shopName = model.name;
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Service_Url, model.portraitUrl]];
-    [self.managerView.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"headImage"] options:SDWebImageRefreshCached];
+    [self.managerView.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defaultImage"] options:SDWebImageRefreshCached];
     
     self.managerView.nameLabel.text = model.name;
 
@@ -166,10 +175,10 @@
             
             self.managerView.priceLabel.text = [NSString stringWithFormat:@"￥%ld.", a];
             
-            self.managerView.priceLabel.frame = CGRectMake(10 * kMulriple, 5 * kHMulriple, [self widthForContentText:self.priceLabel.text], 30 * kHMulriple);
-            self.priceLittleLabel.frame = CGRectMake([self widthForContentText:self.priceLabel.text] + 10 * kMulriple, 13 * kHMulriple, 40 * kMulriple, 20 * kHMulriple);
+            self.managerView.priceLabel.frame = CGRectMake(10 * kMulriple, 5 * kHMulriple, [self widthForContentText:self.managerView.priceLabel.text], 30 * kHMulriple);
+            self.managerView.priceLittleLabel.frame = CGRectMake([self widthForContentText:self.managerView.priceLabel.text] + 10 * kMulriple, 13 * kHMulriple, 40 * kMulriple, 20 * kHMulriple);
             NSString *subStr = [NSString stringWithFormat:@"%.2f", c];
-            self.priceLittleLabel.text = [subStr substringWithRange:NSMakeRange(2, 2)];
+            self.managerView.priceLittleLabel.text = [subStr substringWithRange:NSMakeRange(2, 2)];
             
         } else {
             self.managerView.priceLabel.text = @"￥0.";
@@ -195,6 +204,9 @@
 #pragma mark -跳转到个人设置页面
 - (void)setUpBtnAction:(UIButton *)sender {
     PersonalSetUpController *personVC = [[PersonalSetUpController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"个人设置";
+    self.navigationItem.backBarButtonItem = backItem;
     [self.navigationController pushViewController:personVC animated:YES];
 }
 
@@ -202,93 +214,22 @@
 - (void)messageBtnAction:(UIButton *)sender {
     
     NewsViewController *newsVC = [[NewsViewController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"系统消息";
+    self.navigationItem.backBarButtonItem = backItem;
     [self.navigationController pushViewController:newsVC animated:YES];
 }
 
-- (void)deleteBtnAction:(UIButton *)sender {
-    
-    [self.dimenView removeFromSuperview];
-}
 
-#pragma mark -跳转到二维码页面
-- (void)codeBtnAction:(UIButton *)sender {
-    NSString *str = [NSString stringWithFormat:@"101100%@", [AccountTool unarchiveShopId]];
-
-    [self.view addSubview:self.dimenView];
-    [self.dimenView bringSubviewToFront:self.dimenView.deleteBtn];
-    self.dimenView.shopNameLabel.text = self.shopName;
-    self.dimenView.backgroundColor = [UIColor whiteColor];
-    
-    [self.dimenView.saveBtn addTarget:self action:@selector(saveBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //二维码滤镜
-    CIFilter *filter=[CIFilter filterWithName:@"CIQRCodeGenerator"];
-    //恢复滤镜的默认属性
-    [filter setDefaults];
-    //将字符串转换成NSData
-    NSData *data=[str dataUsingEncoding:NSUTF8StringEncoding];
-    //通过KVO设置滤镜inputmessage数据
-    [filter setValue:data forKey:@"inputMessage"];
-    //获得滤镜输出的图像
-    CIImage *outputImage = [filter outputImage];
-   
-    //将CIImage转换成UIImage,并放大显示
-    self.dimenView.scanImageView.image = [self createNonInterpolatedUIImageFormCIImage:outputImage withSize:220];
-
-}
-
-//改变二维码大小
-- (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat) size {
-    CGRect extent = CGRectIntegral(image.extent);
-    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
-    // 创建bitmap;
-    size_t width = CGRectGetWidth(extent) * scale;
-    size_t height = CGRectGetHeight(extent) * scale;
-    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
-    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
-    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
-    CGContextScaleCTM(bitmapRef, scale, scale);
-    CGContextDrawImage(bitmapRef, extent, bitmapImage);
-    // 保存bitmap到图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef);
-    CGImageRelease(bitmapImage);
-    return [UIImage imageWithCGImage:scaledImage];
-}
-
-- (void)saveBtnAction:(UIButton *)sender {
-    
-    /**
-     *  将图片保存到iPhone本地相册
-     *  UIImage *image            图片对象
-     *  id completionTarget       响应方法对象
-     *  SEL completionSelector    方法
-     *  void *contextInfo
-     */
-    UIImageWriteToSavedPhotosAlbum(self.dimenView.scanImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    
-}
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
-    [SVProgressHUD setMinimumDismissTimeInterval:1];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    if (error == nil) {
-        
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-        
-    }else{
-        
-        [SVProgressHUD showInfoWithStatus:@"保存失败"];
-    }
-    
-}
 
 #pragma mark -跳转到今日订单页面
 - (void)listBtnAction:(UIButton *)sender {
     
     TodayListController *listVC = [[TodayListController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"今日订单";
+    self.navigationItem.backBarButtonItem = backItem;
+
     [self.navigationController pushViewController:listVC animated:YES];
     
 }
@@ -300,15 +241,18 @@
         case 1000:{
             
             CaiWuDuiZhangController *caiWuVC = [[CaiWuDuiZhangController alloc] init];
+            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+            backItem.title = @"财务对账";
+            self.navigationItem.backBarButtonItem = backItem;
             [self.navigationController pushViewController:caiWuVC animated:YES];
             
         }
             break;
         case 1001: {
             DrawMoneyController *drawVC = [[DrawMoneyController alloc] init];
-//            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-//            backItem.title = @"收入提现";
-//            self.navigationItem.backBarButtonItem = backItem;
+            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+            backItem.title = @"收入提现";
+            self.navigationItem.backBarButtonItem = backItem;
             [self.navigationController pushViewController:drawVC animated:YES];
         }
             break;
@@ -327,18 +271,25 @@
     switch (sender.tag) {
         case 2000:{
             ManagerProductController *managerVC = [[ManagerProductController alloc] init];
+            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+            backItem.title = @"商品管理";
+            self.navigationItem.backBarButtonItem = backItem;
             [self.navigationController pushViewController:managerVC animated:YES];
         }
             break;
         case 2001: {
             UserCommentController *commentVC = [[UserCommentController alloc] init];
+            UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+            backItem.title = @"用户评价";
+            self.navigationItem.backBarButtonItem = backItem;
+
             [self.navigationController pushViewController:commentVC animated:YES];
         }
             break;
             
         case 2002: {
             
-                     
+            
         }
             break;
         default:
@@ -367,8 +318,8 @@
 - (void)loginoutHandle {
     
 
-    [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"default_icon"]];
-    self.nameLabel.text = @"";
+    [self.managerView.photoImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"default_icon"]];
+    self.managerView.nameLabel.text = @"";
     
     [[UserModel defaultModel] clearUserModel];
     
@@ -392,32 +343,6 @@
     }
 }
 
-- (void)setupViews {
-    
-    self.managerView = [[ShopManagerView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.managerView];
-    
-    [_managerView.setUpBtn addTarget:self action:@selector(setUpBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_managerView.messageBtn addTarget:self action:@selector(messageBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_managerView.codeBtn addTarget:self action:@selector(codeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [_managerView.listBtn addTarget:self action:@selector(listBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    for (int i = 0; i < 3; i++) {
-        
-        UIButton *firstLineBtn = (UIButton *)[_managerView viewWithTag:1000 + i];
-        [firstLineBtn addTarget:self action:@selector(firstLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *secondLineBtn = (UIButton *)[_managerView viewWithTag:2000 + i];
-        [secondLineBtn addTarget:self action:@selector(secondLineBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    
-
-    [_managerView.loginoutBtn addTarget:self action:@selector(loginoutBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-}
 
 //动态计算文本的高度
 - (CGFloat)widthForContentText:(NSString *)text{

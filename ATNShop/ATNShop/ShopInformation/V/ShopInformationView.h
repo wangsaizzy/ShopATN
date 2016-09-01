@@ -7,29 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PlaceholderTextView.h"
 @interface ShopInformationView : UIView
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIView *secondView;
-@property (nonatomic, strong) UIView *thirdView;
-@property (nonatomic, strong) UIView *fouthView;
-@property (nonatomic, strong) UISwitch *stateSwitch;//开关
-@property (nonatomic, strong) UITextField *shopNameTF;
-@property (nonatomic, strong) UIImageView *shopHeadImageView;//商铺头像
-@property (nonatomic, strong) UIImageView *shopListImageView;//列表展示图
-@property (nonatomic, strong) UIImageView *shopBannerImageView;//横幅展示图
+//@property (nonatomic, strong) UIView *secondView;
+//@property (nonatomic, strong) UIView *thirdView;
+//@property (nonatomic, strong) UIView *fouthView;
 
-@property (nonatomic, strong) UIButton *headImageViewBtn;//头像
-@property (nonatomic, strong) UITextView *detailAddressTV;//详细地址
-@property (nonatomic, strong) UILabel *shopStateLabel;//店铺状态
-@property (nonatomic, strong) UILabel *chooseCategoryLabel;//店铺分类
-@property (nonatomic, strong) UIImageView *categoryImage;
-@property (nonatomic, strong) UILabel *discountLabel;//折扣
+@property (nonatomic, strong) UIImageView *shopHeadImageView;//商铺头像
+@property (nonatomic, strong) UIImageView *publicizeImageView;//列表展示图
+@property (nonatomic, strong) UIButton *headImageViewBtn;//头像选择按钮
+@property (nonatomic, strong) UIButton *publicizeImageBtn;//宣传图选择按钮
+@property (nonatomic, strong) UITextField *shopNameTF;//店铺名称
+@property (nonatomic, strong) PlaceholderTextView *detailAddressTV;//详细地址
+@property (nonatomic, strong) PlaceholderTextView *descriptionTV;//店铺描述
+@property (nonatomic, strong) UITextField *discountTF;//折扣
 @property (nonatomic, strong) UITextField *phoneTF;//电话
-@property (nonatomic, strong) UIButton *chooseCategoryBtn;//选择分类
-@property (nonatomic, strong) UIButton *shopBannerBtn;//横幅展示图按钮
-@property (nonatomic, strong) UIButton *showListBtn;//列表展示图按钮
-@property (nonatomic, strong) UIButton *showEnvironmentBtn;//环境展示图按钮
+@property (nonatomic, strong) PlaceholderTextView *popularizeTV;//推广用语
 
 @property (nonatomic, strong) UIButton *mapBtn;
 

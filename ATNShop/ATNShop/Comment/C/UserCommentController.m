@@ -37,8 +37,7 @@ static NSInteger num = 1;
     [super viewDidLoad];
    
     self.dataSourceArr = [NSMutableArray arrayWithCapacity:6];
-    [self customNaviBar];
-
+    
     [self setupViews];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     [self.tableView.mj_header beginRefreshing];
@@ -46,23 +45,11 @@ static NSInteger num = 1;
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
-- (void)customNaviBar {
-    
-    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrowImage"] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
-    self.navigationItem.leftBarButtonItem = left;
-    
-}
-
-- (void)handleBack:(UIBarButtonItem *)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 - (void)setupViews {
     self.view.backgroundColor = RGB(238, 238, 238);
-    self.title = @"用户评价";
-   
+       
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kHeight - 64 * kHMulriple) style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

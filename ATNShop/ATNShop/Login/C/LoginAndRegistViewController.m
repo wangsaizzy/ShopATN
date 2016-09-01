@@ -28,7 +28,7 @@
     self.navigationController.navigationBarHidden = YES;
 
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", Service_Url,  [UserModel defaultModel].portraitUrl]];
-    [_loginView.customerPhotoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"headImage"] options:SDWebImageRefreshCached];
+    [_loginView.customerPhotoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"defaultImage"] options:SDWebImageRefreshCached];
 }
 
 - (void)viewDidLoad {

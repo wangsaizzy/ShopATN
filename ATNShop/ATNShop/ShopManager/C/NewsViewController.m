@@ -165,19 +165,15 @@
 }
 
 - (void)customNaviBar {
-    self.title = @"系统消息";
-    UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrowImage"] style:UIBarButtonItemStylePlain target:self action:@selector(handleBack:)];
-    self.navigationItem.leftBarButtonItem = left;
+    
+    
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20 * kMulriple], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
     self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
 }
 
-- (void)handleBack:(UIBarButtonItem *)sender {
-    
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 
 - (void)requestData {
