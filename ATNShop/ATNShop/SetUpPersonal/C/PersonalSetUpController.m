@@ -18,8 +18,10 @@
 @implementation PersonalSetUpController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBarHidden = NO;
+//    [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
     
@@ -30,10 +32,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpViews];
 }
 
-
+//-(void) viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+//    
+//   
+//}
 
 
 - (void)setUpViews {

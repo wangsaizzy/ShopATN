@@ -37,7 +37,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+   
     self.navigationController.navigationBarHidden = YES;
+    
+//    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor darkGrayColor];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
@@ -57,10 +61,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
+     self.view.backgroundColor = [UIColor whiteColor];
     //布局视图
     
     [self setupViews];
+    
+   
     
     if ([IsAppLoginTool unarchiveIsAppLogin] == YES) {
       

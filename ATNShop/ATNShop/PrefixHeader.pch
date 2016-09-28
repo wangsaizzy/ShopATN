@@ -57,6 +57,7 @@
 //测试版
 #define Service_Url  @"http://123.56.71.215/app"
 
+//正式版
 //#define Service_Url  @"http://123.57.144.19/app"
 
 //token

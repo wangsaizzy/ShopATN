@@ -23,7 +23,7 @@
 - (void)setupViews {
     
     //背景视图
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 20 * kHMulriple, kWight, 170 * kHMulriple)];
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 20 * kHMulriple, kWight, 195 * kHMulriple)];
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:headView.bounds];
     [headView addSubview:backImageView];
     backImageView.image = [UIImage imageNamed:@"shopBackGround"];
@@ -36,7 +36,7 @@
     [self addSubview:headView];
     
     //中间视图
-    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 190 * kHMulriple, kWight, 100 * kHMulriple)];
+    UIView *secondView = [[UIView alloc] initWithFrame:CGRectMake(0, 215 * kHMulriple, kWight, 100 * kHMulriple)];
     secondView.backgroundColor = [UIColor whiteColor];
     
     [self.inComeBtn addSubview:self.priceLabel];
@@ -66,7 +66,7 @@
     [self addSubview:secondView];
     
     //分类视图
-    UIView *categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 291.5 * kHMulriple, kWight, kHeight - 322 * kHMulriple)];
+    UIView *categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 316.5 * kHMulriple, kWight, kHeight - 322 * kHMulriple)];
     categoryView.backgroundColor = RGB(237, 237, 237);
     
     NSArray *firstLineImageArr = @[@"verifyMoney",@"cashApply",@"shopInformation"];
@@ -141,7 +141,7 @@
     
     if (!_photoImageView) {
         
-        self.photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(152 * kMulriple, 30 * kHMulriple, 70 * kMulriple, 70 * kHMulriple)];
+        self.photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(152 * kMulriple, 50 * kHMulriple, 70 * kMulriple, 70 * kHMulriple)];
         [self.photoImageView setImage:[UIImage imageNamed:@"defaultImage"]];
         _photoImageView.layer.cornerRadius = 35 * kMulriple;
         _photoImageView.layer.masksToBounds = YES;
@@ -154,7 +154,7 @@
     
     if (!_nameLabel) {
         
-        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(147 * kMulriple, 115 * kHMulriple, 240 * kMulriple, 20 * kHMulriple)];
+        self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(147 * kMulriple, 135 * kHMulriple, 240 * kMulriple, 20 * kHMulriple)];
         _nameLabel.centerX = kWight / 2;
         _nameLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
         _nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -169,8 +169,9 @@
     if (!_setUpBtn) {
         
         self.setUpBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        _setUpBtn.frame = CGRectMake(kWight - 50 * kMulriple, 15 * kHMulriple, 30 * kMulriple, 30 * kHMulriple);
+        _setUpBtn.frame = CGRectMake(kWight - 40 * kMulriple, 20 * kHMulriple, 25 * kMulriple, 25 * kHMulriple);
         [_setUpBtn setBackgroundImage:[UIImage imageNamed:@"setup"] forState:UIControlStateNormal];
+//        [_setUpBtn setImage:[UIImage imageNamed:@"setup"] forState:UIControlStateNormal];
     }
     return _setUpBtn;
 }
@@ -179,8 +180,9 @@
     
     if (!_messageBtn) {
         
-        self.messageBtn = [[UIButton alloc] initWithFrame:CGRectMake(0 * kMulriple, 0 * kHMulriple, 60 * kMulriple, 60 * kHMulriple)];
-        [_messageBtn setImage:[UIImage imageNamed:@"news"] forState:UIControlStateNormal];
+        self.messageBtn = [[UIButton alloc] initWithFrame:CGRectMake(20 * kMulriple, 20 * kHMulriple, 22 * kMulriple, 24 * kHMulriple)];
+//        [_messageBtn setImage:[UIImage imageNamed:@"news"] forState:UIControlStateNormal];
+        [_messageBtn setBackgroundImage:[UIImage imageNamed:@"news"] forState:UIControlStateNormal];
     }
     return _messageBtn;
 }
