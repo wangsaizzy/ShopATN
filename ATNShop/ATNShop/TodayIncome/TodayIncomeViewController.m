@@ -24,19 +24,35 @@
     
     self.orderListArray = [NSMutableArray arrayWithCapacity:8];
     
+    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBarHidden = NO;
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
+    
+    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20], NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = dic;
+    
     [self customNaviBar];
     [self setupViews];
     [self requestData];
 }
 
 - (void)customNaviBar {
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20 * kMulriple], NSForegroundColorAttributeName:[UIColor whiteColor]};
+    self.navigationController.navigationBar.titleTextAttributes = dic;
+    self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
+    
     /**
      改变nav push 到下一级颜色
      */
     //    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     //    backItem.title = @"XX";
     //    self.navigationItem.backBarButtonItem = backItem;
-    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+//    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
     
 }
 

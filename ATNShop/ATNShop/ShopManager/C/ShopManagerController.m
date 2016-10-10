@@ -19,6 +19,7 @@
 #import "AppDelegate.h"
 #import "ShopInformationModel.h"
 #import "NewsViewController.h"
+#import "TodayIncomeViewController.h"
 
 #import <CommonCrypto/CommonCryptor.h>
 #import "ServerForCodeText.h"
@@ -235,12 +236,12 @@
 #pragma mark -跳转到今日收入
 - (void)inComeBtnAction:(UIButton *)sender {
     
-    TodayListController *listVC = [[TodayListController alloc] init];
+    TodayIncomeViewController *incomeVC = [[TodayIncomeViewController alloc] init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
     backItem.title = @"今日收入";
     self.navigationItem.backBarButtonItem = backItem;
     
-    [self.navigationController pushViewController:listVC animated:YES];
+    [self.navigationController pushViewController:incomeVC animated:YES];
     
 }
 
