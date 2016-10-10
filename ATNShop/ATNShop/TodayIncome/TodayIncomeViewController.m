@@ -47,6 +47,7 @@
     self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
    
     
+    
     /**
      改变nav push 到下一级颜色
      */
