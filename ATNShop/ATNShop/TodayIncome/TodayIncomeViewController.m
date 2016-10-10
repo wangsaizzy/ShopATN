@@ -45,6 +45,7 @@
     NSDictionary *dic = @{NSFontAttributeName:[UIFont systemFontOfSize:20 * kMulriple], NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = dic;
     self.navigationController.navigationBar.barTintColor = RGB(83, 83, 83);
+   
     
     /**
      改变nav push 到下一级颜色
