@@ -102,6 +102,9 @@
     [_managerView.listBtn addTarget:self action:@selector(listBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
+    [_managerView.inComeBtn addTarget:self action:@selector(inComeBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     for (int i = 0; i < 3; i++) {
         
         UIButton *firstLineBtn = (UIButton *)[_managerView viewWithTag:1000 + i];
@@ -208,6 +211,8 @@
 }
 
 
+
+
 #pragma mark -跳转到个人设置页面
 - (void)setUpBtnAction:(UIButton *)sender {
     PersonalSetUpController *personVC = [[PersonalSetUpController alloc] init];
@@ -227,14 +232,28 @@
     [self.navigationController pushViewController:newsVC animated:YES];
 }
 
+#pragma mark -跳转到今日收入
+- (void)inComeBtnAction:(UIButton *)sender {
+    
+    TodayListController *listVC = [[TodayListController alloc] init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    backItem.title = @"今日收入";
+    self.navigationItem.backBarButtonItem = backItem;
+    
+    [self.navigationController pushViewController:listVC animated:YES];
+    
+}
 
 
-#pragma mark -跳转到今日订单页面
+
+
+
+#pragma mark -跳转到订单页面
 - (void)listBtnAction:(UIButton *)sender {
     
     TodayListController *listVC = [[TodayListController alloc] init];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    backItem.title = @"今日订单";
+    backItem.title = @"订单";
     self.navigationItem.backBarButtonItem = backItem;
 
     [self.navigationController pushViewController:listVC animated:YES];

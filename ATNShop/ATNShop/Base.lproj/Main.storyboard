@@ -22,5 +22,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Today Income View Controller-->
+        <scene sceneID="XST-Ye-5V6">
+            <objects>
+                <viewController storyboardIdentifier="TodayIncomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2mG-oe-vq5" customClass="TodayIncomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oAx-hs-WSS"/>
+                        <viewControllerLayoutGuide type="bottom" id="NsF-6f-cNo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ppG-Y0-aIE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nx-ec-U7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="325"/>
+        </scene>
     </scenes>
 </document>

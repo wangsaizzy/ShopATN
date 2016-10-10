@@ -56,7 +56,7 @@
     UILabel *listLabel = [[UILabel alloc] initWithFrame:CGRectMake(5 * kMulriple, 40 * kHMulriple, 90 * kMulriple, 25 * kHMulriple)];
     listLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
     listLabel.centerX = self.listBtn.width / 2;
-    listLabel.text = @"今日订单";
+    listLabel.text = @"订单";
     listLabel.textColor = RGB(111, 111, 111);
     listLabel.textAlignment = NSTextAlignmentCenter;
     [self.listBtn addSubview:listLabel];

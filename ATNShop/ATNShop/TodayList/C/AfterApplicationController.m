@@ -2,9 +2,14 @@
 //  AfterApplicationController.m
 //  ATNShop
 //
-//  Created by 吴明飞 on 16/8/30.
+//  Created by 吴明飞 on 16/9/30.
 //  Copyright © 2016年 王赛. All rights reserved.
 //
+
+/**
+ *  -------------------申请售后
+ *
+ */
 
 #import "AfterApplicationController.h"
 #import "ListDetailController.h"

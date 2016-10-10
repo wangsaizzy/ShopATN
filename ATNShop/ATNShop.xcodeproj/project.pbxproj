@@ -13,6 +13,9 @@
 		02E494001D7524C8009683E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02E493FE1D7524C8009683E6 /* LaunchScreen.storyboard */; };
 		02E4940B1D7524C8009683E6 /* ATNShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4940A1D7524C8009683E6 /* ATNShopTests.m */; };
 		02E494161D7524C8009683E6 /* ATNShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E494151D7524C8009683E6 /* ATNShopUITests.m */; };
+		02F97E681DAB6A57001C2AA3 /* TodayIncomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F97E671DAB6A57001C2AA3 /* TodayIncomeCell.m */; };
+		02F97E6B1DAB79FE001C2AA3 /* TodayIncomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F97E6A1DAB79FE001C2AA3 /* TodayIncomeModel.m */; };
+		02F97E711DAB7F63001C2AA3 /* TodayIncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F97E701DAB7F63001C2AA3 /* TodayIncomeViewController.m */; };
 		0C95B42B8FBD6FBDC1B254BD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313D90904EC2764623569B6B /* libPods.a */; };
 		15EEAD931D756CE600872D42 /* ApplyCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAC3B1D756CE600872D42 /* ApplyCashController.m */; };
 		15EEAD941D756CE600872D42 /* HistoryCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EEAC3D1D756CE600872D42 /* HistoryCashController.m */; };
@@ -181,6 +184,12 @@
 		02E494111D7524C8009683E6 /* ATNShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATNShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02E494151D7524C8009683E6 /* ATNShopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATNShopUITests.m; sourceTree = "<group>"; };
 		02E494171D7524C8009683E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02F97E661DAB6A57001C2AA3 /* TodayIncomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayIncomeCell.h; sourceTree = "<group>"; };
+		02F97E671DAB6A57001C2AA3 /* TodayIncomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayIncomeCell.m; sourceTree = "<group>"; };
+		02F97E691DAB79FE001C2AA3 /* TodayIncomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayIncomeModel.h; sourceTree = "<group>"; };
+		02F97E6A1DAB79FE001C2AA3 /* TodayIncomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayIncomeModel.m; sourceTree = "<group>"; };
+		02F97E6F1DAB7F63001C2AA3 /* TodayIncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayIncomeViewController.h; sourceTree = "<group>"; };
+		02F97E701DAB7F63001C2AA3 /* TodayIncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayIncomeViewController.m; sourceTree = "<group>"; };
 		15EEAC3A1D756CE600872D42 /* ApplyCashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyCashController.h; sourceTree = "<group>"; };
 		15EEAC3B1D756CE600872D42 /* ApplyCashController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyCashController.m; sourceTree = "<group>"; };
 		15EEAC3C1D756CE600872D42 /* HistoryCashController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCashController.h; sourceTree = "<group>"; };
@@ -509,19 +518,20 @@
 		02E493EF1D7524C8009683E6 /* ATNShop */ = {
 			isa = PBXGroup;
 			children = (
-				15EEAE2C1D758B3600872D42 /* TodayList */,
-				15EEAC381D756CE600872D42 /* ApplyCash */,
-				15EEAC461D756CE600872D42 /* BandAccount */,
+				02F97E621DAB67A4001C2AA3 /* TodayIncome-今日收入 */,
+				15EEAE2C1D758B3600872D42 /* TodayList-订单 */,
+				15EEAC381D756CE600872D42 /* ApplyCash-申请提现 */,
+				15EEAC461D756CE600872D42 /* BandAccount-绑定账户 */,
 				15EEAC581D756CE600872D42 /* Category */,
-				15EEAC651D756CE600872D42 /* CheckList */,
-				15EEAC6F1D756CE600872D42 /* Comment */,
+				15EEAC651D756CE600872D42 /* CheckList-财务对账 */,
+				15EEAC6F1D756CE600872D42 /* Comment-评论 */,
 				15EEAC7B1D756CE600872D42 /* GoodsManager */,
-				15EEAC8B1D756CE600872D42 /* IncomeCash */,
+				15EEAC8B1D756CE600872D42 /* IncomeCash-收入提现 */,
 				15EEAC951D756CE600872D42 /* Login */,
 				15EEACAB1D756CE600872D42 /* Map */,
 				15EEACB71D756CE600872D42 /* SetUpPersonal */,
-				15EEACC81D756CE600872D42 /* ShopInformation */,
-				15EEACE01D756CE600872D42 /* ShopManager */,
+				15EEACC81D756CE600872D42 /* ShopInformation-店铺信息 */,
+				15EEACE01D756CE600872D42 /* ShopManager-首页 */,
 				15EEACFA1D756CE600872D42 /* Source */,
 				15EEACFC1D756CE600872D42 /* ThirdParty */,
 				15EEAD7B1D756CE600872D42 /* Tools */,
@@ -564,13 +574,52 @@
 			path = ATNShopUITests;
 			sourceTree = "<group>";
 		};
-		15EEAC381D756CE600872D42 /* ApplyCash */ = {
+		02F97E621DAB67A4001C2AA3 /* TodayIncome-今日收入 */ = {
+			isa = PBXGroup;
+			children = (
+				02F97E651DAB67BD001C2AA3 /* M */,
+				02F97E641DAB67B8001C2AA3 /* V */,
+				02F97E631DAB67B0001C2AA3 /* C */,
+			);
+			name = "TodayIncome-今日收入";
+			path = TodayIncome;
+			sourceTree = "<group>";
+		};
+		02F97E631DAB67B0001C2AA3 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				02F97E6F1DAB7F63001C2AA3 /* TodayIncomeViewController.h */,
+				02F97E701DAB7F63001C2AA3 /* TodayIncomeViewController.m */,
+			);
+			name = C;
+			sourceTree = "<group>";
+		};
+		02F97E641DAB67B8001C2AA3 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				02F97E661DAB6A57001C2AA3 /* TodayIncomeCell.h */,
+				02F97E671DAB6A57001C2AA3 /* TodayIncomeCell.m */,
+			);
+			name = V;
+			sourceTree = "<group>";
+		};
+		02F97E651DAB67BD001C2AA3 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				02F97E691DAB79FE001C2AA3 /* TodayIncomeModel.h */,
+				02F97E6A1DAB79FE001C2AA3 /* TodayIncomeModel.m */,
+			);
+			name = M;
+			sourceTree = "<group>";
+		};
+		15EEAC381D756CE600872D42 /* ApplyCash-申请提现 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEAC391D756CE600872D42 /* C */,
 				15EEAC3E1D756CE600872D42 /* M */,
 				15EEAC411D756CE600872D42 /* V */,
 			);
+			name = "ApplyCash-申请提现";
 			path = ApplyCash;
 			sourceTree = "<group>";
 		};
@@ -605,12 +654,13 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		15EEAC461D756CE600872D42 /* BandAccount */ = {
+		15EEAC461D756CE600872D42 /* BandAccount-绑定账户 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEAC471D756CE600872D42 /* C */,
 				15EEAC501D756CE600872D42 /* V */,
 			);
+			name = "BandAccount-绑定账户";
 			path = BandAccount;
 			sourceTree = "<group>";
 		};
@@ -662,13 +712,14 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		15EEAC651D756CE600872D42 /* CheckList */ = {
+		15EEAC651D756CE600872D42 /* CheckList-财务对账 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEAC661D756CE600872D42 /* C */,
 				15EEAC691D756CE600872D42 /* M */,
 				15EEAC6C1D756CE600872D42 /* V */,
 			);
+			name = "CheckList-财务对账";
 			path = CheckList;
 			sourceTree = "<group>";
 		};
@@ -699,13 +750,14 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		15EEAC6F1D756CE600872D42 /* Comment */ = {
+		15EEAC6F1D756CE600872D42 /* Comment-评论 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEAC701D756CE600872D42 /* C */,
 				15EEAC731D756CE600872D42 /* M */,
 				15EEAC761D756CE600872D42 /* V */,
 			);
+			name = "Comment-评论";
 			path = Comment;
 			sourceTree = "<group>";
 		};
@@ -781,13 +833,14 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		15EEAC8B1D756CE600872D42 /* IncomeCash */ = {
+		15EEAC8B1D756CE600872D42 /* IncomeCash-收入提现 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEAC8C1D756CE600872D42 /* C */,
 				15EEAC8F1D756CE600872D42 /* M */,
 				15EEAC921D756CE600872D42 /* V */,
 			);
+			name = "IncomeCash-收入提现";
 			path = IncomeCash;
 			sourceTree = "<group>";
 		};
@@ -943,13 +996,14 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		15EEACC81D756CE600872D42 /* ShopInformation */ = {
+		15EEACC81D756CE600872D42 /* ShopInformation-店铺信息 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEACC91D756CE600872D42 /* C */,
 				15EEACD21D756CE600872D42 /* M */,
 				15EEACDB1D756CE600872D42 /* V */,
 			);
+			name = "ShopInformation-店铺信息";
 			path = ShopInformation;
 			sourceTree = "<group>";
 		};
@@ -994,13 +1048,14 @@
 			path = V;
 			sourceTree = "<group>";
 		};
-		15EEACE01D756CE600872D42 /* ShopManager */ = {
+		15EEACE01D756CE600872D42 /* ShopManager-首页 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEACE11D756CE600872D42 /* C */,
 				15EEACE81D756CE600872D42 /* M */,
 				15EEACEF1D756CE600872D42 /* V */,
 			);
+			name = "ShopManager-首页";
 			path = ShopManager;
 			sourceTree = "<group>";
 		};
@@ -1318,13 +1373,14 @@
 			path = UploadImages;
 			sourceTree = "<group>";
 		};
-		15EEAE2C1D758B3600872D42 /* TodayList */ = {
+		15EEAE2C1D758B3600872D42 /* TodayList-订单 */ = {
 			isa = PBXGroup;
 			children = (
 				15EEAE2D1D758B3600872D42 /* C */,
 				15EEAE381D758B3600872D42 /* M */,
 				15EEAE3F1D758B3600872D42 /* V */,
 			);
+			name = "TodayList-订单";
 			path = TodayList;
 			sourceTree = "<group>";
 		};
@@ -1594,12 +1650,14 @@
 				15EEAE191D756CE600872D42 /* ZHPickerView.m in Sources */,
 				15EEADE41D756CE600872D42 /* FYPhotoBrowser.m in Sources */,
 				15EEADC31D756CE600872D42 /* AboutUsController.m in Sources */,
+				02F97E6B1DAB79FE001C2AA3 /* TodayIncomeModel.m in Sources */,
 				15EEAE141D756CE600872D42 /* HttpHelper.m in Sources */,
 				15EEADDE1D756CE600872D42 /* ShopManagerView.m in Sources */,
 				15EEADAB1D756CE600872D42 /* CommentCell.m in Sources */,
 				15EEADF91D756CE600872D42 /* ZLPhotoAssets.m in Sources */,
 				15EEAD961D756CE600872D42 /* ApplyCashView.m in Sources */,
 				15EEADD31D756CE600872D42 /* ShopInformationView.m in Sources */,
+				02F97E711DAB7F63001C2AA3 /* TodayIncomeViewController.m in Sources */,
 				15EEAE481D758B3600872D42 /* TodayListController.m in Sources */,
 				15EEAD931D756CE600872D42 /* ApplyCashController.m in Sources */,
 				15EEAD9E1D756CE600872D42 /* LPPageViewMenu.m in Sources */,
@@ -1671,6 +1729,7 @@
 				15EEADD01D756CE600872D42 /* CityModel.m in Sources */,
 				15EEADA31D756CE600872D42 /* UIView+Addition.m in Sources */,
 				15EEAE471D758B3600872D42 /* ListDetailController.m in Sources */,
+				02F97E681DAB6A57001C2AA3 /* TodayIncomeCell.m in Sources */,
 				15EEADD71D756CE600872D42 /* ArchiveHelper.m in Sources */,
 				15EEADE01D756CE600872D42 /* pinyin.m in Sources */,
 				15EEADE91D756CE600872D42 /* VPImageCropperViewController.m in Sources */,

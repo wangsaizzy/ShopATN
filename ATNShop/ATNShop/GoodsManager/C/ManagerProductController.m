@@ -116,19 +116,19 @@ static NSInteger num = 1;
         
         [weakself LoadDataWithArray:weakself.modelArray];
         
-
+        
         if (array.count < 5) {
             
             _tableView.mj_footer.hidden = YES;
         }
-
+        
         
         if (array.count > 0) {
             
             _tableView.hidden = NO;
             [_textLabel removeFromSuperview];
             [_backImage removeFromSuperview];
-
+            
         } else if (array.count == 0) {
             
             self.view.backgroundColor = RGB(200, 200, 200);
@@ -136,13 +136,13 @@ static NSInteger num = 1;
             [self.view addSubview:self.textLabel];
             _tableView.hidden = YES;
         }
-
-
+        
+        
     } failure:^(NSError *error) {
         
     }];
     
-
+    
     [self.tableView.mj_header endRefreshing];
 }
 
@@ -170,7 +170,7 @@ static NSInteger num = 1;
             }
             [weakself.modelArray addObjectsFromArray:array];
             [weakself LoadDataWithArray:weakself.modelArray];
-
+            
         }
         
     } failure:^(NSError *error) {
@@ -214,26 +214,26 @@ static NSInteger num = 1;
             [HttpHelper requestMethod:@"DELETE" urlString:urlString parma:nil success:^(id json) {
                 [SVProgressHUD showSuccessWithStatus:@"删除成功"];
                 
-                    [weakself.dataArray removeObjectAtIndex:index];
-                    [weakself.modelArray removeObjectAtIndex:index];
-                    
-                    // 刷新数据
-                    [weakself LoadDataWithArray:weakself.modelArray];
-                    
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"DeleteGoodsSuccess" object:nil];
+                [weakself.dataArray removeObjectAtIndex:index];
+                [weakself.modelArray removeObjectAtIndex:index];
                 
-
+                // 刷新数据
+                [weakself LoadDataWithArray:weakself.modelArray];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"DeleteGoodsSuccess" object:nil];
+                
+                
             } failure:^(NSError *error) {
                 
             }];
             
-    }];
+        }];
         
-
+        
     }
     
     [self.tableView setUpTheDataSourceWithArray:self.dataArray];
-
+    
 }
 
 
@@ -252,20 +252,20 @@ static NSInteger num = 1;
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-        [cell statusCellWithIndex:^(NSInteger index) {
-       
+    [cell statusCellWithIndex:^(NSInteger index) {
+        
         GoodsModel *model = array[index - 5000];
         if ([cell.productStatusBtn.titleLabel.text isEqualToString:@"恢复售卖"]) {
             
             NSString *urlString = [NSString stringWithFormat:@"/shop/product/%@/publish", model.id];
-           
+            
             
             
             [HttpHelper requestMethod:@"PATCH" urlStr:urlString parma:nil success:^(id json) {
                 
-            
+                
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"ResumeGoodsSuccess" object:nil];
-                        
+                
                 [SVProgressHUD showSuccessWithStatus:@"发布成功"];
                 
                 [cell.productStatusBtn.layer setBorderWidth:1 * kMulriple];   //边框宽度
@@ -275,16 +275,16 @@ static NSInteger num = 1;
                 [cell.productStatusBtn setTitle:@"缺货下架" forState:UIControlStateNormal];
                 cell.productStatusBtn.backgroundColor = [UIColor whiteColor];
                 
-               
+                
             } failure:^(NSError *error) {
                 
                 if (error) {
                     
-                  [SVProgressHUD showInfoWithStatus:@"发布失败"];
+                    [SVProgressHUD showInfoWithStatus:@"发布失败"];
                 }
-
+                
             }];
-
+            
         }
         
         if ([cell.productStatusBtn.titleLabel.text isEqualToString:@"缺货下架"]) {
@@ -293,17 +293,17 @@ static NSInteger num = 1;
             
             
             [HttpHelper requestMethod:@"PATCH" urlStr:urlString parma:nil success:^(id json) {
-            
-                        
+                
+                
                 [SVProgressHUD showSuccessWithStatus:@"下架成功"];
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"StockGoodsSuccess" object:nil];
-                          
-                    [cell.productStatusBtn setTitle:@"恢复售卖" forState:UIControlStateNormal];
-                    cell.productStatusBtn.backgroundColor = [UIColor redColor];
-                    cell.productStatusBtn.titleLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
-                    [cell.productStatusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 
-                        
+                [cell.productStatusBtn setTitle:@"恢复售卖" forState:UIControlStateNormal];
+                cell.productStatusBtn.backgroundColor = [UIColor redColor];
+                cell.productStatusBtn.titleLabel.font = [UIFont systemFontOfSize:17 * kMulriple];
+                [cell.productStatusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                
+                
                 
             } failure:^(NSError *error) {
                 
@@ -311,9 +311,9 @@ static NSInteger num = 1;
                     
                     [SVProgressHUD showInfoWithStatus:@"下架失败"];
                 }
-
+                
             }];
-
+            
         }
     }];
 }
@@ -356,7 +356,7 @@ static NSInteger num = 1;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AddGoodsSuccess" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"AlertGoodsSuccess" object:nil];
-     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DeleteGoodsSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DeleteGoodsSuccess" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ResumeGoodsSuccess" object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"StockGoodsSuccess" object:nil];
 }
